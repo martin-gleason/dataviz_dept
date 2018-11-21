@@ -1,4 +1,4 @@
-#pulling and cleaning data
+#cleaning and mugngin
 library("tidyverse")
 library("readxl")
 source("cleaning_functions.R")
@@ -10,13 +10,6 @@ june_oct_2018_xlsx %>% seperate_calendars()
 Sept_Stats <- Sept %>% 
   select(AOIC_Stat = X__1, 
          PO_Stat = X__2:X__8)
-
-June_Stats <- June %>%
-  select(AOIC_Stat = X__1,
-         PO_Stat = X__2:X__8)
-
-july_stats <- July %>% set_PO_stats()
-
 
 #Calendars
 cal58_60 <- Sept_Stats[1:18, ] #spo bufano
@@ -63,12 +56,33 @@ cal_maywood <- Sept_Stats[443:460, ]
 
 cal_maywood2 <- Sept_Stats[463:480, ]
 
-adminstrative <- Sept_Stats %>% 
-  filter(AOIC_Stat == "Anderson")
+###--------###
+# inprogress<-gather(seps,year,value,FY1993:FY1998)
+# head(inprogress)
 
-cal_16_dist %>% tidy_up()
+maywood2 <- cal_maywood2 %>%
+  select(1:5) %>% #check select_if
+  po_name_col()  %>% 
+  gather(2:5, key = PO_Name, value = Totals) %>% 
+  spread(key = AOIC_Stat, value = Totals)
 
 
 
+#m2 <- maywood2 %>% select(AOIC_Stat, 2)
 
+maywood_ideal <- maywood2 %>% 
+  gather(2:5, key = PO_Name, value = Totals) %>% 
+  spread(key = AOIC_Stat, value = Totals)
+
+m2_spread <- m3 
+
+View(m2_spread)
   
+
+m2_gather %>% tail()
+
+m2_long <- m2 %>% spread(AOIC_Stat, `Jamie Anguiano`)
+
+View(m2_long)
+glimpse(m2)
+glimpse(maywood2)

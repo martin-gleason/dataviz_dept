@@ -12,21 +12,40 @@ seperate_calendars <- function(xlsx, ...){
   list2env(months, .GlobalEnv)
 }
 
+#Brute force remove the standad 8 columns
+set_PO_stats <- function(df, ...){
+  df <- df %>%
+    select(AOIC_Stat = X__1,
+           PO_Stat = X__2:X__8)
+}
+
 
 #takes lenght of DF, then, assuming second row is the header, replaces column name with name of PO
 po_name_col <- function(df, ...){
   df <- df %>% 
     mutate_all(funs(replace(., is.na(.),0)))
   for(i in 1:length(df)){
-    if(!is.na(df[1, i])){
-      names(df)[i] <- df[1, i]
+    if(!is.na(df[4, i])){
+      names(df)[i] <- df[4, i]
     } else {
-      next(is.na(df[1, i]))
+      next(is.na(df[4, i]))
     }
   }
 
   df <- df[2:nrow(df), 1:ncol(df)]
+  df <- df[5:nrow(df), ]
+  names(df)[1] <- "AOIC_Stat" #remember, index goes outside of name function call
   return(df)
 }
 
+#this one. This one is awesome. Take only columns with data, craete PO names, then make tidy with gather/spread
+tidy_up <- function(df, ...){
+  df %>% 
+  select_if(~!all(is.na(.))) %>% # essary line, investigat select if. This has to do with negation. 
+  po_name_col() %>%
+  gather(2:ncol(.), key = PO_Name, 
+         value = Totals) %>% 
+  spread(key = AOIC_Stat, 
+         value = Totals)
+}
 
