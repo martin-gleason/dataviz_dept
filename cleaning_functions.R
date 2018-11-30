@@ -38,14 +38,38 @@ po_name_col <- function(df, ...){
   return(df)
 }
 
+pull_unit_info <- function(df, ...){
+  dcpo <- df[1, 1]
+  police_district <- df[2, 1]
+  SPO <- df[3, 1]
+  info <- c(dcpo, police_district, SPO)
+  unlist(info)
+}
+
 #this one. This one is awesome. Take only columns with data, craete PO names, then make tidy with gather/spread
 tidy_up <- function(df, ...){
-  df %>% 
+  unit_info <- df %>% 
+    pull_unit_info()
+  
+  tidy_unit <- df %>% 
   select_if(~!all(is.na(.))) %>% # essary line, investigat select if. This has to do with negation. 
   po_name_col() %>%
   gather(2:ncol(.), key = PO_Name, 
          value = Totals) %>% 
   spread(key = AOIC_Stat, 
-         value = Totals)
+         value = Totals) %>%
+    mutate_at(c(2:ncol(.)), as.numeric) %>%
+    mutate(Unit = unit_info[[2]], SPO = unit_info[[3]], DCPO = unit_info[[1]])
+
+  tidy_unit
 }
 
+unit_only_tidy <- function(df, ...){
+ df %>% 
+    select_if(~!all(is.na(.))) %>% # essary line, investigat select if. This has to do with negation. 
+    po_name_col() %>%
+    gather(2:ncol(.), key = PO_Name, 
+           value = Totals) %>% 
+    spread(key = AOIC_Stat, 
+           value = Totals)
+}

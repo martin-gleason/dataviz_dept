@@ -7,15 +7,11 @@ june_oct_2018_xlsx <- file.path("June-Sept AOIC per dept.xlsx")
 
 june_oct_2018_xlsx %>% seperate_calendars()
 
-Sept_Stats <- Sept %>% 
-  select(AOIC_Stat = X__1, 
-         PO_Stat = X__2:X__8)
+June_Stats <- June %>% set_PO_stats()
+July_Stats <- July %>% set_PO_stats() # the old way was not a function.
+August_Stats <- Aug %>% set_PO_stats()
+Sept_Stats <- Sept %>% set_PO_stats()
 
-June_Stats <- June %>%
-  select(AOIC_Stat = X__1,
-         PO_Stat = X__2:X__8)
-
-july_stats <- July %>% set_PO_stats()
 
 
 #Calendars
@@ -66,9 +62,5 @@ cal_maywood2 <- Sept_Stats[463:480, ]
 adminstrative <- Sept_Stats %>% 
   filter(AOIC_Stat == "Anderson")
 
-cal_16_dist %>% tidy_up()
+tidy_16 <- cal_16_dist %>% tidy_up()
 
-
-
-
-  
