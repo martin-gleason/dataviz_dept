@@ -21,7 +21,9 @@ source("cleaning_aoic.R")
  
 # Executive Summary
 
-* The department should invest staffing resources into a Data, Research, and Visualization unit to collect, clean, analyze, and present data to ensure the department is maximizing the investment in *CFive Supervisor.*
+* The department should invest staffing resources into a Data, Research, and Visualization.
+
+* This unit will collect, clean, analyze, and present data to ensure the department is data-drive, thereby maximizing the investment in *CFive Supervisor.*
 
 * This unit would use purchased, or free, tools including [Office 365](https://products.office.com/en-us/business/office) and free software, as [R](https://www.r-project.org), to maximize the return on the investment.
 
@@ -32,7 +34,32 @@ source("cleaning_aoic.R")
   * Works with the [Cook County Geographic Information Systems Department](https://www.cookcountyil.gov/agency/geographic-information-systems-gis-0) to create new, data driven tools. 
   
 ---
+# Unit Mission Statement
+*It is the policy of the Cook County Juvenile Probation and Court Services Department to maintain the highest level of data integrity within the department and with community partners and to use this data to develop polices, procedures, and programs that enhance the possibility of long term success for all young people under the care of the court.*
 
+---
+# Specific Recommendations
+
+* At a minimum, a system administrator is needed to ensure `Supervisor's` data integrity.
+
+* More resources would allow for more insights including
+
+  * Redesigning all forms and reports
+  
+  * [Developing GIS solutions](https://www.cookcountyil.gov/agency/geographic-information-systems-gis-0)
+  
+---
+
+## Unit Structure
+This unit would house:
+
+* Two support professionals to help collect data and generate reports and visualizations. 
+* The CFive System Administrator
+* The supervisor of the unit would also be responsible for maintaining and leveraging all of Department's data sharing agreements.
+* Additional staff maybe needed to help develop programs that stem from the insights gained by maximizing the utility of `CFive Supervisor`.
+* It is not a revolutionary change, simple an evolution of the departments capabilities and opportunities.
+  * In creating this unit, the department frames data as a "mission critical" aspect, and redistributes all of the varied data tasks under one roof. 
+---
 # The Issue
 
 Consider the current AOIC report, presented in the following format:
@@ -125,7 +152,6 @@ cal_55_2 %>%
 ```
 
 ---
-\newpage
 
 It is still relatively easy to compare and contrast intra-unit data. It is far from ideal. Specifically, one has to read horizontally and vertically to compare baseline data month over month. Comparing between units is more difficult, as each unit is a different series of rows. With each unit added to this format, the more difficult it becomes to not just compare data points, but to find data points. For example:
 
@@ -140,8 +166,6 @@ cal_55_2 %>%
 
 ---
 The current excel format solves this issue by adding two or three empty rows; however, the lack of standard difference between rows makes machine based analysis slower and more time consuming. It also makes plotting data exceptionally difficult.
-
-\newpage
 
 \blandscape
 
@@ -172,8 +196,6 @@ cal_55_2 %>%
                 stripe_color = "lightgray")
 ```
 
-\newpage
-
 ---
 
 Once the AOIC data is in this "long" format, it is easier to analyse. For instance, take a table of two units arranged by High risk cases:
@@ -193,8 +215,6 @@ cal_57 %>%
                 stripe_color = "lightgray")
 
 ```
-
-\newpage
 
 Crowding all of the columns onto one page is not ideal; however, one can easily see all of the stats by unit for a given month. Filtering by case load stats becomes exceptionally easier:[^3]
 ---
@@ -216,7 +236,7 @@ cal_57 %>%
                 stripe_color = "lightgray")
 ```
 
-\elandscape
+---
 
 ## R Markdown: Better Tools for Plots and Graphs
 This work is done in `R and R Markdown`. Like Excel, these tools can create graphs and charts:
@@ -240,7 +260,7 @@ cal_57 %>%
 
 ```
 
-\newpage
+---
 
 And unlike Excel, these tools easily lends itself to additional visualizations, such as filtering results to focus on specific variables, such as Social Investigations and VOPs Filed. In the following example, the background code is included to show how this work is done.
 
@@ -261,7 +281,7 @@ cal_57 %>%
 ```
 
 And as a graph:
-
+---
 ```{r SI_VOP, include= TRUE, echo = TRUE, fig.cap="Socials and VOPs in GBO and Lawndale"}
 
 lloyd <-  cal_55_2 %>% 
@@ -283,7 +303,7 @@ cal_57 %>%
 ```
 
 In both of the previous examples, snippets of code were included in the document to showcase how `R` handles filtering. What makes this method superior to Excel is that the above code can be reused with a similar data set. For instance, plotting the same AOIC stas with Markham North:
-
+---
 ```{r, markham_north, include = TRUE, echo = TRUE, fig.cap = "Socials and VOPs in Markham North", fig.pos = "h"}
 
 cal_mark_n %>%
@@ -299,32 +319,15 @@ cal_mark_n %>%
        x = "PO Name", y = "Client Totals") +
   coord_flip()
 ```
-
+---
 With Excel, each month need to be recalculated from the specific sheet. With `R`, the code can be reused with limited changes. Furthermore, if additional verbiage was required to provide context for a visualization, one would have to export into Word to write the document. With R, one writes the code and the context in the same document, which can significantly improve workflow.
-
+---
 ## Shiny
 With additional resources, specifically installing free software on a the Chief Judge's server, the department would be able to run these same reports internally as a website. This software, known as [Shiny](https://shiny.rstudio.com), would allow us to create dashboards and programmable reports that can updated quickly. Additional examples of how Shiny can be used can be found [here.](https://shiny.rstudio.com/gallery/)
-
+---
 # GIS
 The award winning Cook County Geographic Information Systems department is willing to develop a number of dashboard and applications for the court. If a Data, Research, and Visualization unit was created, this uni would be able to build internal capacity to utilize GIS tools to go beyond the aforementioned dashboards. Even if the extent of the work was limited to using the GIS tools to turn addresses into latitude and longitude, this would allow for the unit to create regular programmable reports, such as unit level heat maps of risk levels or neighborhood "hot spots." Creating a unit to facilitate all of the department's Data needs, including the tool of GIS, can extend the viability and utility of the CFive investment.
-
-# Specific Recommendations
-`CFive Supervisor` will encourage the department to continue down a data driven path. Maximizing the return on this investment requires additional departmental resources, the minimum of which is a system administrator to ensure `Supervisor's` data integrity. Just doing the minimum, however, will not make the most of this new system (and the changes to procedure that is sure to follow.) To this end, a new unit should be created to ensure that handles all department data and visualizations. This would include the short term goals of changing the AOIC stat format to a Tidy one and as well as producing stats until `CFive Supervisor's` is fully implemented, as well as long term goals of using our data to ensure the creation of data driven policies, procedures, and programs.
-
-## Mission Statement
-*It is the policy of the Cook County Juvenile Probation and Court Services Department to maintain the highest level of data integrity within the department and with community partners and to use this data to develop polices, procedures, and programs that enhance the possibility of long term success for all young people under the care of the court.*
-
-## Structure of the Unit
-This unit would house:
-
-* Two support professionals to help collect data and generate reports and visualizations. 
-* The CFive System Administrator
-
-Two such individuals already do this work in the department, so including them in this new department would only service to solidify this commitment to data driven approaches. The role of CFive Systems Administrator will need to be a permanent position for maintaining the system; therefore it is logical to add this position to a unit that is focused on data. 
-
-In addition to reporting and collection tasks, the supervisor of the unit would also be responsible for maintain and leverage all of the data sharing agreements the department has with other justice and community agencies. Other staff maybe needed to help develop programs that stem from the insights gained by maximizing the utility of `CFive Supervisor`; shifting staff resources to this new unit would suffice for current needs. In creating this unit, the department frames data as a "mission critical" aspect, and redistributes all of the varied data tasks under one roof. It is not a revolutionary change, simple an evolution of the departments capabilities and opportunities.
-
-
+---
 
 [^1]: As of this writing, Go-Live is set for March 29, 2019
 [^2]: The columns are: *`r names(cal_55_2 %>% tidy_up()) %>% as.vector()`*
