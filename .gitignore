@@ -4,3 +4,9 @@
 .Ruserdata
 trial_cleaning.R
 po_name_col.R
+test.*
+test_files
+missfont.log
+learning_unpivotr.R
+*.tex
+*.jpg
