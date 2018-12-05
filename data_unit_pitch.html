@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Data, Research, and Visualization Unit</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Martin Gleason, MS" />
+    <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+    <link rel="stylesheet" href="libs/remark-css/default.css" type="text/css" />
+    <link rel="stylesheet" href="pro_presentation.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+ 
+# Executive Summary
+
+* The department should invest staffing resources into a Data, Research, and Visualization unit to collect, clean, analyze, and present data to ensure the department is maximizing the investment in *CFive Supervisor.*
+
+* This unit would use purchased, or free, tools including [Office 365](https://products.office.com/en-us/business/office) and free software, as [R](https://www.r-project.org), to maximize the return on the investment.
+
+* This unit would collapse existing resources to:
+
+  * Prepare for [CFive's Supervisor](https://www.cfive.com/products/supervisor/)'s data collection and dashboards featuers
+  
+  * Works with the [Cook County Geographic Information Systems Department](https://www.cookcountyil.gov/agency/geographic-information-systems-gis-0) to create new, data driven tools. 
+  
+---
+
+# The Issue
+
+Consider the current AOIC report, presented in the following format:
+
+&lt;table class="table" style="margin-left: auto; margin-right: auto;"&gt;
+&lt;caption&gt;First Eight Columns of CFive Supervisor&lt;/caption&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; X__1 &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; X__2 &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; X__3 &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; X__4 &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; X__5 &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; X__6 &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; X__7 &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; X__8 &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Terri Griffin &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Police District 17, 14, 18-20 - Cal. 58, 60 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Diane Bufano &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Laura Donnelly &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Andrea Korte &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Michelle Malave &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Amy O'Rourke &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Yvonne Pulido &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Diane Bufano &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Total Caseload &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 17 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 9 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 20 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 13 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 21 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; YASI HIGH &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+ 
+These eight columns are the POs, per unit, at a glance, depending on the number of POs in the unit and the number of cases assigned to the Supervisor.
+---
+# Columns Nine Through Eleven: 
+## Aggregates
+
+&lt;table class="table" style="margin-left: auto; margin-right: auto;"&gt;
+&lt;caption&gt;Caseload Aggregate Data&lt;/caption&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; X__9 &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; X__10 &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; X__11 &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; CASELOAD TOTAL &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; AVERAGE CASELOAD &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Total P.Os &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 81 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 16 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 5 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 16 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+# VOP and Caseload Averages
+
+&lt;table class="table" style="margin-left: auto; margin-right: auto;"&gt;
+&lt;caption&gt;VOPs and Caseload Averages&lt;/caption&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; X__12 &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; X__13 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; VOP'S FILED BY UNIT &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Baseline(Average for the month) &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Caseload size &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Dept average caseload size &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Average Caseload Size for Unit &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Average Caseload Size &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; SPO Bufano &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 81 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 72 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 16 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 16 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; SPO Carter &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 29 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 72 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 14.5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 16 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; SPO Flanagan &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 59 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 72 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 14 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 16 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; SPO Alejo &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 58 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 72 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 11.6 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 16 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; SPO Herner &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 46 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 72 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 15.333333333333334 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 16 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 6 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; SPO Moore &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 55 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 72 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 11 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 16 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+# Issues with this format:
+
+* Storing and presenting AOIC data in this fashion limits additional investigation of the data. 
+
+* Multiple spreadsheets must be created and then merged in order to do month-month comparisons. 
+
+* Compiling said spreadsheets increases the chances of errors:
+  * Due to spelling mistakes
+  * Accidentally deleting spreadsheet structure
+  * Over-writing spreadsheets while saving them.
+  
+---
+# CFive's Eventual Solution
+
+* [CFive's Supervisor](https://www.cfive.com/products/supervisor/) will be able to solve most of these data collection issues. 
+
+* As of the current understanding of the Statement of Work, *Supervisor* will pull these necessary numbers from the system as a standard report.
+
+* Unfortunately, the reporting features are not completed and not available for preview. 
+
+--- 
+This gap presents an opportunity for the department to reformat any and all of the statistical forms and reports. If the department invests the resources, this unit ensure that our data and visualization needs are not just met, but exceeded. The *Supervisor's Go-Live *[^1] date provides an incentive to get this material completed quickly, in order to ensure the design of the forms and reports fits the need of the department.
+
+---
+
+# New Format and Methods: The Solution
+Implementing [tidy data](http://vita.had.co.nz/papers/tidy-data.html) is the first step this unit would take in order to help the transformation of our department into a data-driven office. Tidy data is short hand for:
+
+* Columns are single variable
+* Rows are single observation
+* Each observational unit forms a table
+
+---
+
+Continuing with the AOIC spreadsheet example, this document violates all of the rules of tidy data. The easiest example to understand is how each sheet is a collection of observations and aggregates across units. To be considered tidy, each geographic unit should have their own worksheet, with separate worksheets for averages and other calculated variables. 
+
+While it appears that the sheets follow the first and second rules; however, considering what is being tracked, the columns and rows are transposed. Put differently, in the current format, POs are variables when they they are actually tracking observations. In tidy terms this makes POs *rows.* 
+---
+
+## GBO As a Demo
+For example, consider the GBO unit. On the standard AOIC spreadsheet, GBO's stats are between rows 401 and 418:
+
+\rowcolors{2}{lightgray}{white}
+\begin{table}[!h]
+
+\caption{\label{tab:gbo_demo}September, 2018}
+\centering
+\resizebox{\linewidth}{!}{
+\begin{tabular}[t]{llllllll}
+\hiderowcolors
+\toprule
+AOIC\_Stat &amp; PO\_Stat1 &amp; PO\_Stat2 &amp; PO\_Stat3 &amp; PO\_Stat4 &amp; PO\_Stat5 &amp; PO\_Stat6 &amp; PO\_Stat7\\
+\midrule
+\showrowcolors
+Melissa Spooner &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+Police district 2 - Cal 55 &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+Lloyd Marshall &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+NA &amp; Ernest Jones &amp; Michael Muhammad &amp; Rodney Purdy-Blake &amp; James Smith &amp; ADMIN &amp; NA &amp; NA\\
+Total Caseload &amp; 16 &amp; 17 &amp; 15 &amp; 16 &amp; NA &amp; NA &amp; NA\\
+\addlinespace
+YASI HIGH &amp; 7 &amp; 8 &amp; 4 &amp; 1 &amp; NA &amp; NA &amp; NA\\
+YASI MOD &amp; 6 &amp; 6 &amp; 7 &amp; 9 &amp; NA &amp; NA &amp; NA\\
+YASI LOW &amp; 1 &amp; 2 &amp; 2 &amp; 3 &amp; NA &amp; NA &amp; NA\\
+YASI UNCLASSIFIED &amp; 2 &amp; 1 &amp; 2 &amp; 3 &amp; NA &amp; NA &amp; NA\\
+Scheduled Termination &amp; 2 &amp; 1 &amp; 1 &amp; 1 &amp; NA &amp; NA &amp; NA\\
+\addlinespace
+Early Termination &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+Revoked-Technical/DOC-IDJJ &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+Revoked-new offense/DOC-IDJJ &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+Unsatisfactory termination &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+Transferred out &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+\addlinespace
+Social investigation &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+Supplemental social &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+VOP Filed &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+\bottomrule
+\end{tabular}}
+\end{table}`
+\rowcolors{2}{white}{white}
+
+At a glance, one can see how individual officers case loads have changed over the previous month. However, if one was to compare GBO and Lawndale (rows 201-218), the issue with messy data becomes apparent:
+---
+
+## GBO and Lawndale
+
+\rowcolors{2}{lightgray}{white}
+\begin{table}[!h]
+
+\caption{\label{tab:GBO_and_Lawndale}GBO and Lawndale: September, 2018}
+\centering
+\resizebox{\linewidth}{!}{
+\begin{tabular}[t]{llllllll}
+\hiderowcolors
+\toprule
+AOIC\_Stat &amp; PO\_Stat1 &amp; PO\_Stat2 &amp; PO\_Stat3 &amp; PO\_Stat4 &amp; PO\_Stat5 &amp; PO\_Stat6 &amp; PO\_Stat7\\
+\midrule
+\showrowcolors
+Melissa Spooner &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+Police district 2 - Cal 55 &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+Lloyd Marshall &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+NA &amp; Ernest Jones &amp; Michael Muhammad &amp; Rodney Purdy-Blake &amp; James Smith &amp; ADMIN &amp; NA &amp; NA\\
+Total Caseload &amp; 16 &amp; 17 &amp; 15 &amp; 16 &amp; NA &amp; NA &amp; NA\\
+\addlinespace
+YASI HIGH &amp; 7 &amp; 8 &amp; 4 &amp; 1 &amp; NA &amp; NA &amp; NA\\
+YASI MOD &amp; 6 &amp; 6 &amp; 7 &amp; 9 &amp; NA &amp; NA &amp; NA\\
+YASI LOW &amp; 1 &amp; 2 &amp; 2 &amp; 3 &amp; NA &amp; NA &amp; NA\\
+YASI UNCLASSIFIED &amp; 2 &amp; 1 &amp; 2 &amp; 3 &amp; NA &amp; NA &amp; NA\\
+Scheduled Termination &amp; 2 &amp; 1 &amp; 1 &amp; 1 &amp; NA &amp; NA &amp; NA\\
+\addlinespace
+Early Termination &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+Revoked-Technical/DOC-IDJJ &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+Revoked-new offense/DOC-IDJJ &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+Unsatisfactory termination &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+Transferred out &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+\addlinespace
+Social investigation &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+Supplemental social &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+VOP Filed &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+Jose Isais &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+Polce Distrct 11 - Cal. 57 &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+\addlinespace
+Aaron Campbell &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+NA &amp; Laterrian Hill &amp; Rance Hopkins* &amp; Pamela Hudson &amp; Tesa Newton-Hart &amp; Kenneth Ollins &amp; Campbell &amp; NA\\
+Total Caseload &amp; 27 &amp; 31 &amp; 23 &amp; 22 &amp; 26 &amp; 1 &amp; NA\\
+YASI HIGH &amp; 9 &amp; NA &amp; 6 &amp; 10 &amp; 3 &amp; NA &amp; NA\\
+YASI MOD &amp; 10 &amp; NA &amp; 9 &amp; 5 &amp; 11 &amp; 1 &amp; NA\\
+\addlinespace
+YASI LOW &amp; 8 &amp; NA &amp; 3 &amp; 6 &amp; 9 &amp; NA &amp; NA\\
+YASI UNCLASSIFIED &amp; NA &amp; 31 &amp; 5 &amp; 1 &amp; 3 &amp; NA &amp; NA\\
+Scheduled Termination &amp; 2 &amp; NA &amp; 1 &amp; 2 &amp; NA &amp; NA &amp; NA\\
+Early Termination &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+Revoked-Technical/DOC-IDJJ &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+\addlinespace
+Revoked-new offense/DOC-IDJJ &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+Unsatisfactory termination &amp; 2 &amp; NA &amp; NA &amp; NA &amp; 1 &amp; NA &amp; NA\\
+Transferred out &amp; NA &amp; 9 &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+Social investigation &amp; NA &amp; 8 &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+Supplemental social &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+VOP Filed &amp; 1 &amp; NA &amp; NA &amp; NA &amp; NA &amp; 1 &amp; NA\\
+\bottomrule
+\end{tabular}}
+\end{table}`
+\rowcolors{2}{white}{white}
+
+---
+\newpage
+
+It is still relatively easy to compare and contrast intra-unit data. It is far from ideal. Specifically, one has to read horizontally and vertically to compare baseline data month over month. Comparing between units is more difficult, as each unit is a different series of rows. With each unit added to this format, the more difficult it becomes to not just compare data points, but to find data points. For example:
+
+\rowcolors{2}{lightgray}{white}
+\begin{table}[H]
+
+\caption{\label{tab:GBO_Lawndale_and_53}GBO, Lawndale, and 8th District: September, 2018}
+\centering
+\resizebox{\linewidth}{!}{
+\begin{tabular}[t]{llllllll}
+\hiderowcolors
+\toprule
+AOIC\_Stat &amp; PO\_Stat1 &amp; PO\_Stat2 &amp; PO\_Stat3 &amp; PO\_Stat4 &amp; PO\_Stat5 &amp; PO\_Stat6 &amp; PO\_Stat7\\
+\midrule
+\showrowcolors
+Melissa Spooner &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+Police district 2 - Cal 55 &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+Lloyd Marshall &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+NA &amp; Ernest Jones &amp; Michael Muhammad &amp; Rodney Purdy-Blake &amp; James Smith &amp; ADMIN &amp; NA &amp; NA\\
+Total Caseload &amp; 16 &amp; 17 &amp; 15 &amp; 16 &amp; NA &amp; NA &amp; NA\\
+\addlinespace
+YASI HIGH &amp; 7 &amp; 8 &amp; 4 &amp; 1 &amp; NA &amp; NA &amp; NA\\
+YASI MOD &amp; 6 &amp; 6 &amp; 7 &amp; 9 &amp; NA &amp; NA &amp; NA\\
+YASI LOW &amp; 1 &amp; 2 &amp; 2 &amp; 3 &amp; NA &amp; NA &amp; NA\\
+YASI UNCLASSIFIED &amp; 2 &amp; 1 &amp; 2 &amp; 3 &amp; NA &amp; NA &amp; NA\\
+Scheduled Termination &amp; 2 &amp; 1 &amp; 1 &amp; 1 &amp; NA &amp; NA &amp; NA\\
+\addlinespace
+Early Termination &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+Revoked-Technical/DOC-IDJJ &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+Revoked-new offense/DOC-IDJJ &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+Unsatisfactory termination &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+Transferred out &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+\addlinespace
+Social investigation &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+Supplemental social &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+VOP Filed &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+Jose Isais &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+Polce Distrct 11 - Cal. 57 &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+\addlinespace
+Aaron Campbell &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+NA &amp; Laterrian Hill &amp; Rance Hopkins* &amp; Pamela Hudson &amp; Tesa Newton-Hart &amp; Kenneth Ollins &amp; Campbell &amp; NA\\
+Total Caseload &amp; 27 &amp; 31 &amp; 23 &amp; 22 &amp; 26 &amp; 1 &amp; NA\\
+YASI HIGH &amp; 9 &amp; NA &amp; 6 &amp; 10 &amp; 3 &amp; NA &amp; NA\\
+YASI MOD &amp; 10 &amp; NA &amp; 9 &amp; 5 &amp; 11 &amp; 1 &amp; NA\\
+\addlinespace
+YASI LOW &amp; 8 &amp; NA &amp; 3 &amp; 6 &amp; 9 &amp; NA &amp; NA\\
+YASI UNCLASSIFIED &amp; NA &amp; 31 &amp; 5 &amp; 1 &amp; 3 &amp; NA &amp; NA\\
+Scheduled Termination &amp; 2 &amp; NA &amp; 1 &amp; 2 &amp; NA &amp; NA &amp; NA\\
+Early Termination &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+Revoked-Technical/DOC-IDJJ &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+\addlinespace
+Revoked-new offense/DOC-IDJJ &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+Unsatisfactory termination &amp; 2 &amp; NA &amp; NA &amp; NA &amp; 1 &amp; NA &amp; NA\\
+Transferred out &amp; NA &amp; 9 &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+Social investigation &amp; NA &amp; 8 &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+Supplemental social &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+\addlinespace
+VOP Filed &amp; 1 &amp; NA &amp; NA &amp; NA &amp; NA &amp; 1 &amp; NA\\
+Ore Jones, III &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+PolicePolice District 10 - Cal. 53 &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+Bennie Blair &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+NA &amp; Cedric Bell &amp; Tyrone Hutson &amp; Tandra Tyler &amp; Robert Hillyer &amp; Bennie Blair &amp; NA &amp; NA\\
+\addlinespace
+Total Caseload &amp; 21 &amp; 21 &amp; 19 &amp; 11 &amp; 2 &amp; NA &amp; NA\\
+YASI HIGH &amp; NA &amp; 5 &amp; 2 &amp; 4 &amp; 2 &amp; NA &amp; NA\\
+YASI MOD &amp; 11 &amp; 4 &amp; 10 &amp; 5 &amp; NA &amp; NA &amp; NA\\
+YASI LOW &amp; 2 &amp; 7 &amp; 4 &amp; 2 &amp; NA &amp; NA &amp; NA\\
+YASI UNCLASSIFIED &amp; 8 &amp; 5 &amp; 3 &amp; NA &amp; NA &amp; NA &amp; NA\\
+\addlinespace
+Scheduled Termination &amp; 1 &amp; 2 &amp; 1 &amp; NA &amp; NA &amp; NA &amp; NA\\
+Early Termination &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+Revoked-Technical/DOC-IDJJ &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+Revoked-new offense/DOC-IDJJ &amp; 1 &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+Unsatisfactory termination &amp; 1 &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA &amp; NA\\
+\addlinespace
+Transferred out &amp; 1 &amp; 1 &amp; 3 &amp; 1 &amp; NA &amp; NA &amp; NA\\
+Social investigation &amp; NA &amp; NA &amp; 1 &amp; NA &amp; NA &amp; NA &amp; NA\\
+Supplemental social &amp; NA &amp; 2 &amp; 2 &amp; 1 &amp; NA &amp; NA &amp; NA\\
+VOP Filed &amp; NA &amp; NA &amp; NA &amp; 1 &amp; NA &amp; NA &amp; NA\\
+\bottomrule
+\end{tabular}}
+\end{table}`
+\rowcolors{2}{white}{white}
+
+---
+The current excel format solves this issue by adding two or three empty rows; however, the lack of standard difference between rows makes machine based analysis slower and more time consuming. It also makes plotting data exceptionally difficult.
+
+\newpage
+
+\blandscape
+
+## New format
+The solution looks like this:
+
+\rowcolors{2}{lightgray}{white}
+\begin{table}[!h]
+
+\caption{\label{tab:tidy}GBO: September, 2018}
+\centering
+\resizebox{\linewidth}{!}{
+\begin{tabular}[t]{lrrrrrrrrrrrrrlll}
+\hiderowcolors
+\toprule
+PO\_Name &amp; Early Termination &amp; Revoked-new offense/DOC-IDJJ &amp; Revoked-Technical/DOC-IDJJ &amp; Scheduled Termination &amp; Social investigation &amp; Supplemental social &amp; Transferred out &amp; Unsatisfactory termination &amp; VOP Filed &amp; YASI HIGH &amp; YASI LOW &amp; YASI MOD &amp; YASI UNCLASSIFIED &amp; Unit &amp; SPO &amp; DCPO\\
+\midrule
+\showrowcolors
+ADMIN &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; Police district 2 - Cal 55 &amp; Lloyd Marshall &amp; Melissa Spooner\\
+Ernest Jones &amp; 0 &amp; 0 &amp; 0 &amp; 2 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 7 &amp; 1 &amp; 6 &amp; 2 &amp; Police district 2 - Cal 55 &amp; Lloyd Marshall &amp; Melissa Spooner\\
+James Smith &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 3 &amp; 9 &amp; 3 &amp; Police district 2 - Cal 55 &amp; Lloyd Marshall &amp; Melissa Spooner\\
+Michael Muhammad &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 8 &amp; 2 &amp; 6 &amp; 1 &amp; Police district 2 - Cal 55 &amp; Lloyd Marshall &amp; Melissa Spooner\\
+Rodney Purdy-Blake &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 4 &amp; 2 &amp; 7 &amp; 2 &amp; Police district 2 - Cal 55 &amp; Lloyd Marshall &amp; Melissa Spooner\\
+\bottomrule
+\end{tabular}}
+\end{table}`
+\rowcolors{2}{white}{white}
+---
+
+This create a difficult-to-read 17 columns[^2] wide table which is difficult to read on paper. The difficulty is mitigated because of the ability to to zoom in on particular areas of interest, either by zooming into different areas of the PDF, automating the reports to fit particular needs, or through web based technologies (which will be discussed later.) It is also possible to filter data by specific variables. An example would be a chart of just YASI and caseload data per unit:
+
+\rowcolors{2}{lightgray}{white}
+\begin{table}[!h]
+
+\caption{\label{tab:yasi}Case Totals, GBO: September, 2018}
+\centering
+\resizebox{\linewidth}{!}{
+\begin{tabular}[t]{lrrrrr}
+\hiderowcolors
+\toprule
+PO\_Name &amp; High &amp; Mod &amp; Low &amp; Unclassified &amp; Total\\
+\midrule
+\showrowcolors
+ADMIN &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0\\
+Ernest Jones &amp; 7 &amp; 6 &amp; 1 &amp; 2 &amp; 16\\
+James Smith &amp; 1 &amp; 9 &amp; 3 &amp; 3 &amp; 16\\
+Michael Muhammad &amp; 8 &amp; 6 &amp; 2 &amp; 1 &amp; 17\\
+Rodney Purdy-Blake &amp; 4 &amp; 7 &amp; 2 &amp; 2 &amp; 15\\
+\bottomrule
+\end{tabular}}
+\end{table}`
+\rowcolors{2}{white}{white}
+
+\newpage
+
+---
+
+Once the AOIC data is in this "long" format, it is easier to analyse. For instance, take a table of two units arranged by High risk cases:
+
+\rowcolors{2}{lightgray}{white}
+\begin{table}[!h]
+
+\caption{\label{tab:tidy_2}GBO and Lawndale by High Risk: September, 2018}
+\centering
+\resizebox{\linewidth}{!}{
+\begin{tabular}[t]{lrrrrrrrrrrrrrl}
+\hiderowcolors
+\toprule
+PO\_Name &amp; Early Termination &amp; Revoked-new offense/DOC-IDJJ &amp; Revoked-Technical/DOC-IDJJ &amp; Scheduled Termination &amp; Social investigation &amp; Supplemental social &amp; Transferred out &amp; Unsatisfactory termination &amp; VOP Filed &amp; YASI HIGH &amp; YASI LOW &amp; YASI MOD &amp; YASI UNCLASSIFIED &amp; Unit\\
+\midrule
+\showrowcolors
+Tesa Newton-Hart &amp; 0 &amp; 0 &amp; 0 &amp; 2 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 10 &amp; 6 &amp; 5 &amp; 1 &amp; Polce Distrct 11 - Cal. 57\\
+Laterrian Hill &amp; 0 &amp; 0 &amp; 0 &amp; 2 &amp; 0 &amp; 0 &amp; 0 &amp; 2 &amp; 1 &amp; 9 &amp; 8 &amp; 10 &amp; 0 &amp; Polce Distrct 11 - Cal. 57\\
+Michael Muhammad &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 8 &amp; 2 &amp; 6 &amp; 1 &amp; Police district 2 - Cal 55\\
+Ernest Jones &amp; 0 &amp; 0 &amp; 0 &amp; 2 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 7 &amp; 1 &amp; 6 &amp; 2 &amp; Police district 2 - Cal 55\\
+Pamela Hudson &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 6 &amp; 3 &amp; 9 &amp; 5 &amp; Polce Distrct 11 - Cal. 57\\
+\addlinespace
+Rodney Purdy-Blake &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 4 &amp; 2 &amp; 7 &amp; 2 &amp; Police district 2 - Cal 55\\
+Kenneth Ollins &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 3 &amp; 9 &amp; 11 &amp; 3 &amp; Polce Distrct 11 - Cal. 57\\
+James Smith &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 3 &amp; 9 &amp; 3 &amp; Police district 2 - Cal 55\\
+Campbell &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; Polce Distrct 11 - Cal. 57\\
+Rance Hopkins* &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 8 &amp; 0 &amp; 9 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 31 &amp; Polce Distrct 11 - Cal. 57\\
+ADMIN &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; Police district 2 - Cal 55\\
+\bottomrule
+\end{tabular}}
+\end{table}`
+\rowcolors{2}{white}{white}
+
+\newpage
+
+Crowding all of the columns onto one page is not ideal; however, one can easily see all of the stats by unit for a given month. Filtering by case load stats becomes exceptionally easier:[^3]
+---
+
+\rowcolors{2}{lightgray}{white}
+\begin{table}[!h]
+
+\caption{\label{tab:gbo_lawndale_caseloadstats}Case Totals, Lawndale and GBO: September, 2018}
+\centering
+\resizebox{\linewidth}{!}{
+\begin{tabular}[t]{llrrrrr}
+\hiderowcolors
+\toprule
+PO\_Name &amp; Unit &amp; High &amp; Mod &amp; Low &amp; Unclassified &amp; Total\\
+\midrule
+\showrowcolors
+Rance Hopkins* &amp; Polce Distrct 11 - Cal. 57 &amp; 0 &amp; 0 &amp; 0 &amp; 31 &amp; 31\\
+Laterrian Hill &amp; Polce Distrct 11 - Cal. 57 &amp; 9 &amp; 10 &amp; 8 &amp; 0 &amp; 27\\
+Kenneth Ollins &amp; Polce Distrct 11 - Cal. 57 &amp; 3 &amp; 11 &amp; 9 &amp; 3 &amp; 26\\
+Pamela Hudson &amp; Polce Distrct 11 - Cal. 57 &amp; 6 &amp; 9 &amp; 3 &amp; 5 &amp; 23\\
+Tesa Newton-Hart &amp; Polce Distrct 11 - Cal. 57 &amp; 10 &amp; 5 &amp; 6 &amp; 1 &amp; 22\\
+\addlinespace
+Michael Muhammad &amp; Police district 2 - Cal 55 &amp; 8 &amp; 6 &amp; 2 &amp; 1 &amp; 17\\
+Ernest Jones &amp; Police district 2 - Cal 55 &amp; 7 &amp; 6 &amp; 1 &amp; 2 &amp; 16\\
+James Smith &amp; Police district 2 - Cal 55 &amp; 1 &amp; 9 &amp; 3 &amp; 3 &amp; 16\\
+Rodney Purdy-Blake &amp; Police district 2 - Cal 55 &amp; 4 &amp; 7 &amp; 2 &amp; 2 &amp; 15\\
+Campbell &amp; Polce Distrct 11 - Cal. 57 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 1\\
+ADMIN &amp; Police district 2 - Cal 55 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0\\
+\bottomrule
+\end{tabular}}
+\end{table}`
+\rowcolors{2}{white}{white}
+
+\elandscape
+
+## R Markdown: Better Tools for Plots and Graphs
+This work is done in `R and R Markdown`. Like Excel, these tools can create graphs and charts:
+
+&lt;div class="figure"&gt;
+&lt;img src="data_unit_pitch_files/figure-html/initial_graphs-1.png" alt="GBO and Lawndale, September 2018" width="90%" height="90%"  /&gt;
+&lt;p class="caption"&gt;GBO and Lawndale, September 2018&lt;/p&gt;
+&lt;/div&gt;
+
+\newpage
+
+And unlike Excel, these tools easily lends itself to additional visualizations, such as filtering results to focus on specific variables, such as Social Investigations and VOPs Filed. In the following example, the background code is included to show how this work is done.
+
+First as a chart:
+
+
+```r
+cal_57 %&gt;%
+  tidy_up() %&gt;%
+  bind_rows(lloyd) %&gt;% 
+  select(1, `Social Investigation` =`Social investigation`,
+         `VOP` = `VOP Filed`) %&gt;% 
+  filter(`Social Investigation` &gt; 0 | VOP &gt; 0) %&gt;%
+  kable(booktabs = TRUE, format = "latex", 
+        caption = "GBO: September, 2018") %&gt;%
+  kable_styling(latex_options = c("striped", 
+                                  "hold_position", "scale_down"),
+                stripe_color = "lightgray")
+```
+
+\rowcolors{2}{lightgray}{white}
+\begin{table}[!h]
+
+\caption{\label{tab:as_chart}GBO: September, 2018}
+\centering
+\resizebox{\linewidth}{!}{
+\begin{tabular}[t]{lrr}
+\hiderowcolors
+\toprule
+PO\_Name &amp; Social Investigation &amp; VOP\\
+\midrule
+\showrowcolors
+Campbell &amp; 0 &amp; 1\\
+Laterrian Hill &amp; 0 &amp; 1\\
+Rance Hopkins* &amp; 8 &amp; 0\\
+\bottomrule
+\end{tabular}}
+\end{table}`
+\rowcolors{2}{white}{white}
+
+And as a graph:
+
+
+```r
+lloyd &lt;-  cal_55_2 %&gt;% 
+    tidy_up() 
+
+cal_57 %&gt;%
+  tidy_up() %&gt;%
+  bind_rows(lloyd) %&gt;% 
+  select(1, `Social Investigation` =`Social investigation`, 
+         `VOP` = `VOP Filed`) %&gt;%
+  gather( c(`Social Investigation`, `VOP`), key = Social_VOP, 
+          value = Totals) %&gt;%
+  ggplot(aes(x = PO_Name, y = Totals, fill = `Social_VOP`)) + 
+  geom_bar(stat = "identity", position = "dodge") +
+  viridis::scale_fill_viridis(discrete = TRUE, name = "Socials and VOP") +
+  labs(title = "GBO and Lawndale, September 2018",
+       x = "PO Name", y = "Client Totals") +
+  coord_flip()
+```
+
+![Socials and VOPs in GBO and Lawndale](data_unit_pitch_files/figure-html/SI_VOP-1.png)
+
+In both of the previous examples, snippets of code were included in the document to showcase how `R` handles filtering. What makes this method superior to Excel is that the above code can be reused with a similar data set. For instance, plotting the same AOIC stas with Markham North:
+
+
+```r
+cal_mark_n %&gt;%
+  tidy_up() %&gt;% 
+  select(1, `Social Investigation` =`Social investigation`, 
+         `VOP` = `VOP Filed`) %&gt;%
+  gather( c(`Social Investigation`, `VOP`), key = Social_VOP, 
+          value = Totals) %&gt;%
+  ggplot(aes(x = PO_Name, y = Totals, fill = `Social_VOP`)) + 
+  geom_bar(stat = "identity", position = "dodge") +
+  viridis::scale_fill_viridis(discrete = TRUE, name = "Socials and VOP") +
+  labs(title = "Markham North, September 2018",
+       x = "PO Name", y = "Client Totals") +
+  coord_flip()
+```
+
+![Socials and VOPs in Markham North](data_unit_pitch_files/figure-html/markham_north-1.png)
+
+With Excel, each month need to be recalculated from the specific sheet. With `R`, the code can be reused with limited changes. Furthermore, if additional verbiage was required to provide context for a visualization, one would have to export into Word to write the document. With R, one writes the code and the context in the same document, which can significantly improve workflow.
+
+## Shiny
+With additional resources, specifically installing free software on a the Chief Judge's server, the department would be able to run these same reports internally as a website. This software, known as [Shiny](https://shiny.rstudio.com), would allow us to create dashboards and programmable reports that can updated quickly. Additional examples of how Shiny can be used can be found [here.](https://shiny.rstudio.com/gallery/)
+
+# GIS
+The award winning Cook County Geographic Information Systems department is willing to develop a number of dashboard and applications for the court. If a Data, Research, and Visualization unit was created, this uni would be able to build internal capacity to utilize GIS tools to go beyond the aforementioned dashboards. Even if the extent of the work was limited to using the GIS tools to turn addresses into latitude and longitude, this would allow for the unit to create regular programmable reports, such as unit level heat maps of risk levels or neighborhood "hot spots." Creating a unit to facilitate all of the department's Data needs, including the tool of GIS, can extend the viability and utility of the CFive investment.
+
+# Specific Recommendations
+`CFive Supervisor` will encourage the department to continue down a data driven path. Maximizing the return on this investment requires additional departmental resources, the minimum of which is a system administrator to ensure `Supervisor's` data integrity. Just doing the minimum, however, will not make the most of this new system (and the changes to procedure that is sure to follow.) To this end, a new unit should be created to ensure that handles all department data and visualizations. This would include the short term goals of changing the AOIC stat format to a Tidy one and as well as producing stats until `CFive Supervisor's` is fully implemented, as well as long term goals of using our data to ensure the creation of data driven policies, procedures, and programs.
+
+## Mission Statement
+*It is the policy of the Cook County Juvenile Probation and Court Services Department to maintain the highest level of data integrity within the department and with community partners and to use this data to develop polices, procedures, and programs that enhance the possibility of long term success for all young people under the care of the court.*
+
+## Structure of the Unit
+This unit would house:
+
+* Two support professionals to help collect data and generate reports and visualizations. 
+* The CFive System Administrator
+
+Two such individuals already do this work in the department, so including them in this new department would only service to solidify this commitment to data driven approaches. The role of CFive Systems Administrator will need to be a permanent position for maintaining the system; therefore it is logical to add this position to a unit that is focused on data. 
+
+In addition to reporting and collection tasks, the supervisor of the unit would also be responsible for maintain and leverage all of the data sharing agreements the department has with other justice and community agencies. Other staff maybe needed to help develop programs that stem from the insights gained by maximizing the utility of `CFive Supervisor`; shifting staff resources to this new unit would suffice for current needs. In creating this unit, the department frames data as a "mission critical" aspect, and redistributes all of the varied data tasks under one roof. It is not a revolutionary change, simple an evolution of the departments capabilities and opportunities.
+
+
+
+[^1]: As of this writing, Go-Live is set for March 29, 2019
+[^2]: The columns are: *PO_Name, Early Termination, Revoked-new offense/DOC-IDJJ, Revoked-Technical/DOC-IDJJ, Scheduled Termination, Social investigation, Supplemental social, Transferred out, Unsatisfactory termination, VOP Filed, YASI HIGH, YASI LOW, YASI MOD, YASI UNCLASSIFIED, Unit, SPO, DCPO*
+[^3]: Please note the spelling errors come from excel and not the code written in this document.
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="macros.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

@@ -1,16 +1,15 @@
 ---
-title: "Data, Research, and Visualization Unit"
-header-includes:
-- \usepackage{pdflscape}
-- \newcommand{\blandscape}{\begin{landscape}}
-- \newcommand{\elandscape}{\end{landscape}}
-fontsize: 12pt
+title: "Presentation Ninja"
+subtitle: "⚔<br/>with xaringan"
+author: "Yihui Xie"
+date: "2016/12/12 (updated: `r Sys.Date()`)"
 output:
-  pdf_document: 
-    fig_caption: yes
-    keep_tex: yes
-    latex_engine: xelatex
-urlcolor: blue
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
 ---
 
 ```{r setup, include= FALSE, echo = FALSE, warning=FALSE}
@@ -18,11 +17,23 @@ library(kableExtra)
 source("cleaning_aoic.R")
 
 ```
-
+ 
 # Executive Summary
-The department should invest staffing resources into a Data, Research, and Visualization unit that, in addition to compiling AOIC statistics, works with the [Cook County Geographic Information Systems Department](https://www.cookcountyil.gov/agency/geographic-information-systems-gis-0) to create new, data driven tools and supplement the eventual dashboards created by [CFive's Supervisor](https://www.cfive.com/products/supervisor/). At a minimum, this unit would house both sworn staff, such as the CFive system administrator, and two support professionals who are already doing data work. In addition to using the tools in [Office 365](https://products.office.com/en-us/business/office), this unit would use free software (such as, [R](https://www.r-project.org) and [GIS](https://www.esri.com/en-us/what-is-gis/overview))to collect, clean, analyze, and present data to ensure the department is maximizing the investment in *CFive Supervisor.*
+
+
+* The department should invest staffing resources into a Data, Research, and Visualization unit to collect, clean, analyze, and present data to ensure the department is maximizing the investment in *CFive Supervisor.*
+
+* These tools include [Office 365](https://products.office.com/en-us/business/office) and free software, as [R](https://www.r-project.org), to maximize the return on the investment.
+
+* This unit would collapse existing resources to:
+
+  * Prepare for [CFive's Supervisor](https://www.cfive.com/products/supervisor/)'s data collection and dashboards featuers
+  
+  * Works with the [Cook County Geographic Information Systems Department](https://www.cookcountyil.gov/agency/geographic-information-systems-gis-0) to create new, data driven tools. 
+---
 
 # The Issue
+
 To demonstrate the need of a new Data, Research, and Visualization unit, consider the current AOIC report. Currently, this report is presented in the following format:
 
 ```{r first_8, include = TRUE, echo = FALSE}
@@ -33,6 +44,7 @@ kable(head(June[ , 1:8]), caption = "First Eight Columns of CFive Supervisor") %
 Of course, the Excel report is more aesthetically pleasing, but the overall format is identical: Multiple units on the document, multiple breakdowns of stats collected, and multiple types of observations.
 
 The first eight columns are the POs, per unit, at a glance, depending on the number of POs in the unit and the number of cases assigned to the Supervisor.
+---
 
 ```{r 9_11, include = TRUE, echo = FALSE}
 kable(head(June[ , 9:11]), caption = "Caseload Aggregate Data")%>%
@@ -48,10 +60,15 @@ kable(head(June[ , 12:19]), caption = "VOPs and Caseload Averages") %>%
 The remaining seven columns are a mishmash of stats by unit and department.
 
 Storing and presenting AOIC data in this fashion limits additional investigation of the data. Multiple spreadsheets must be created and then merged in order to do month-month comparisons. Compiling said spreadsheets increases the chances of errors due to spelling mistakes, accidentally deleting spreadsheet structure, or over-writing spreadsheets while saving them. 
+---
 
 Fortunately, [CFive's Supervisor](https://www.cfive.com/products/supervisor/) will be able to solve most of these data collection issues. As of the current understanding of the Statement of Work, *Supervisor* will pull these necessary numbers from the system as a standard report. Another possible scenario is SPOs will complete a *Supervisor* based form that will guide the creation of the report. Regardless of the method, the way in which AOIC Stats are gathered and presented will change. Unfortunately, the reporting features are not completed and not available for preview. 
 
+---
+
 This gap presents an opportunity for the department to reformat any and all of the statistical forms and reports. If the department invests the resources, this unit ensure that our data and visualization needs are not just met, but exceeded. The *Supervisor's Go-Live *[^1] date provides an incentive to get this material completed quickly, in order to ensure the design of the forms and reports fits the need of the department.
+
+---
 
 # New Format and Methods: The Solution
 Implementing [tidy data](http://vita.had.co.nz/papers/tidy-data.html) is the first step this unit would take in order to help the transformation of our department into a data-driven office. Tidy data is short hand for:
@@ -60,9 +77,12 @@ Implementing [tidy data](http://vita.had.co.nz/papers/tidy-data.html) is the fir
 * Rows are single observation
 * Each observational unit forms a table
 
+---
+
 Continuing with the AOIC spreadsheet example, this document violates all of the rules of tidy data. The easiest example to understand is how each sheet is a collection of observations and aggregates across units. To be considered tidy, each geographic unit should have their own worksheet, with separate worksheets for averages and other calculated variables. 
 
 While it appears that the sheets follow the first and second rules; however, considering what is being tracked, the columns and rows are transposed. Put differently, in the current format, POs are variables when they they are actually tracking observations. In tidy terms this makes POs *rows.* 
+---
 
 ## GBO As a Demo
 For example, consider the GBO unit. On the standard AOIC spreadsheet, GBO's stats are between rows 401 and 418:
@@ -76,6 +96,7 @@ cal_55_2 %>%
 ```
 
 At a glance, one can see how individual officers case loads have changed over the previous month. However, if one was to compare GBO and Lawndale (rows 201-218), the issue with messy data becomes apparent:
+---
 
 ## GBO and Lawndale
 
@@ -87,6 +108,7 @@ cal_55_2 %>%
                 stripe_color = "lightgray")
 ```
 
+---
 \newpage
 
 It is still relatively easy to compare and contrast intra-unit data. It is far from ideal. Specifically, one has to read horizontally and vertically to compare baseline data month over month. Comparing between units is more difficult, as each unit is a different series of rows. With each unit added to this format, the more difficult it becomes to not just compare data points, but to find data points. For example:
@@ -100,6 +122,7 @@ cal_55_2 %>%
                 stripe_color = "lightgray")
 ```
 
+---
 The current excel format solves this issue by adding two or three empty rows; however, the lack of standard difference between rows makes machine based analysis slower and more time consuming. It also makes plotting data exceptionally difficult.
 
 \newpage
@@ -117,6 +140,7 @@ The solution looks like this:
                 stripe_color = "lightgray")
 
 ```
+---
 
 This create a difficult-to-read 17 columns[^2] wide table which is difficult to read on paper. The difficulty is mitigated because of the ability to to zoom in on particular areas of interest, either by zooming into different areas of the PDF, automating the reports to fit particular needs, or through web based technologies (which will be discussed later.) It is also possible to filter data by specific variables. An example would be a chart of just YASI and caseload data per unit:
 
@@ -133,6 +157,8 @@ cal_55_2 %>%
 ```
 
 \newpage
+
+---
 
 Once the AOIC data is in this "long" format, it is easier to analyse. For instance, take a table of two units arranged by High risk cases:
 
@@ -155,6 +181,7 @@ cal_57 %>%
 \newpage
 
 Crowding all of the columns onto one page is not ideal; however, one can easily see all of the stats by unit for a given month. Filtering by case load stats becomes exceptionally easier:[^3]
+---
 
 ```{r gbo_lawndale_caseloadstats, include=TRUE,echo=FALSE, message = FALSE}
 lloyd <-  cal_55_2 %>% 

@@ -155,20 +155,24 @@ and Visualization unit that, in addition to compiling AOIC statistics,
 works with the
 \href{https://www.cookcountyil.gov/agency/geographic-information-systems-gis-0}{Cook
 County Geographic Information Systems Department} to create new, data
-driven tools and supplement the dashboards of created by
+driven tools and supplement the eventual dashboards created by
 \href{https://www.cfive.com/products/supervisor/}{CFive's Supervisor}.
-This unit, staffed by sworn staff and support professionals would use
-Excel, \href{https://www.r-project.org}{R}, and
-\href{https://www.esri.com/en-us/what-is-gis/overview}{GIS} to collect,
-clean, and analyze data to ensure the department is maximizing the
-investment in \emph{CFive Supervisor.}
+At a minimum, this unit would house both sworn staff, such as the CFive
+system administrator, and two support professionals who are already
+doing data work. In addition to using the tools in
+\href{https://products.office.com/en-us/business/office}{Office 365},
+this unit would use free software (such as,
+\href{https://www.r-project.org}{R} and
+\href{https://www.esri.com/en-us/what-is-gis/overview}{GIS})to collect,
+clean, analyze, and present data to ensure the department is maximizing
+the investment in \emph{CFive Supervisor.}
 
 \hypertarget{the-issue}{%
 \section{The Issue}\label{the-issue}}
 
 To demonstrate the need of a new Data, Research, and Visualization unit,
-consider the current report for AOIC. Currently, the AOIC Stats are
-presented in the following format:
+consider the current AOIC report. Currently, this report is presented in
+the following format:
 
 \rowcolors{2}{gray!6}{white}
 \begin{table}[!h]
@@ -266,11 +270,12 @@ X\_\_12 & X\_\_13 & VOP'S FILED BY UNIT & Baseline(Average for the month) & Case
 The remaining seven columns are a mishmash of stats by unit and
 department.
 
-Presenting AOIC data in this fashion limits further investigation of
-data. Multiple spreadsheets must be created to combine data for
-month-month comparisons, and compiling said spreadsheets increases the
-chances of errors due to spelling mistakes, accidentally deleting
-spreadsheet structure, or over-writing spreadsheets while saving them.
+Storing and presenting AOIC data in this fashion limits additional
+investigation of the data. Multiple spreadsheets must be created and
+then merged in order to do month-month comparisons. Compiling said
+spreadsheets increases the chances of errors due to spelling mistakes,
+accidentally deleting spreadsheet structure, or over-writing
+spreadsheets while saving them.
 
 Fortunately, \href{https://www.cfive.com/products/supervisor/}{CFive's
 Supervisor} will be able to solve most of these data collection issues.
@@ -278,24 +283,26 @@ As of the current understanding of the Statement of Work,
 \emph{Supervisor} will pull these necessary numbers from the system as a
 standard report. Another possible scenario is SPOs will complete a
 \emph{Supervisor} based form that will guide the creation of the report.
-Regardless, the method in which the AOIC Stats are gathered and
+Regardless of the method, the way in which AOIC Stats are gathered and
 presented will change. Unfortunately, the reporting features are not
 completed and not available for preview.
 
 This gap presents an opportunity for the department to reformat any and
-all of the statistical forms and reports, starting with the AOIC
-reports, to ensure our data and visualization needs are not just met,
-but exceeded. The \emph{Supervisor's Go-Live }\footnote{As of this
-  writing, Go-Live is set for March 29, 2019} date provides an incentive
-to get this material completed quickly.
+all of the statistical forms and reports. If the department invests the
+resources, this unit ensure that our data and visualization needs are
+not just met, but exceeded. The \emph{Supervisor's Go-Live }\footnote{As
+  of this writing, Go-Live is set for March 29, 2019} date provides an
+incentive to get this material completed quickly, in order to ensure the
+design of the forms and reports fits the need of the department.
 
 \hypertarget{new-format-and-methods-the-solution}{%
 \section{New Format and Methods: The
 Solution}\label{new-format-and-methods-the-solution}}
 
 Implementing \href{http://vita.had.co.nz/papers/tidy-data.html}{tidy
-data} is the first step to any transformation to a data-driven office.
-Tidy data is short hand for:
+data} is the first step this unit would take in order to help the
+transformation of our department into a data-driven office. Tidy data is
+short hand for:
 
 \begin{itemize}
 \tightlist
@@ -307,21 +314,23 @@ Tidy data is short hand for:
   Each observational unit forms a table
 \end{itemize}
 
-Currently, the AOIC spreadsheets violates all of the rules of tidy data.
-The easiest example to understand is how each sheet is a collection of
-observations and aggregates across units. In truth, each geographic unit
-should have their own worksheet, with separate worksheets for averages
-and other calculated variables. It appears that the sheets follow the
-first and second rules; however, considering what is being tracked, the
-columns and rows are transposed. Put differently, in the current format,
-POs are variables when they they are actually tracking observations. In
-tidy terms this makes them \emph{rows.}
+Continuing with the AOIC spreadsheet example, this document violates all
+of the rules of tidy data. The easiest example to understand is how each
+sheet is a collection of observations and aggregates across units. To be
+considered tidy, each geographic unit should have their own worksheet,
+with separate worksheets for averages and other calculated variables.
+
+While it appears that the sheets follow the first and second rules;
+however, considering what is being tracked, the columns and rows are
+transposed. Put differently, in the current format, POs are variables
+when they they are actually tracking observations. In tidy terms this
+makes POs \emph{rows.}
 
 \hypertarget{gbo-as-a-demo}{%
 \subsection{GBO As a Demo}\label{gbo-as-a-demo}}
 
-For example, take the GBO unit. On the standard AOIC spreadsheet, GBO's
-stats are between rows 401 and 418:
+For example, consider the GBO unit. On the standard AOIC spreadsheet,
+GBO's stats are between rows 401 and 418:
 
 \rowcolors{2}{lightgray}{white}
 \begin{table}[!h]
@@ -362,8 +371,8 @@ VOP Filed & NA & NA & NA & NA & NA & NA & NA\\
 \rowcolors{2}{white}{white}
 
 At a glance, one can see how individual officers case loads have changed
-over the previous month. However, if one was to compare GBO and
-Lawndale(rows 201-218), the issue with messy data becomes apparent:
+over the previous month. However, if one was to compare GBO and Lawndale
+(rows 201-218), the issue with messy data becomes apparent:
 
 \hypertarget{gbo-and-lawndale}{%
 \subsection{GBO and Lawndale}\label{gbo-and-lawndale}}
@@ -429,13 +438,12 @@ VOP Filed & 1 & NA & NA & NA & NA & 1 & NA\\
 
 \newpage
 
-With only one additional unit, it is relatively easy to compare and
-contrast intra-unit data. It does require a reader to track data
-vertically and horizontally. It is far from ideal. Specifically, one has
-to read horizontally and vertically to compare baseline data month over
-month. With each unit added to this format, the more difficult it
-becomes to not just compare data points, but to find data points. For
-example:
+It is still relatively easy to compare and contrast intra-unit data. It
+is far from ideal. Specifically, one has to read horizontally and
+vertically to compare baseline data month over month. Comparing between
+units is more difficult, as each unit is a different series of rows.
+With each unit added to this format, the more difficult it becomes to
+not just compare data points, but to find data points. For example:
 
 \rowcolors{2}{lightgray}{white}
 \begin{table}[H]
@@ -561,10 +569,11 @@ This create a difficult-to-read 17 columns\footnote{The columns are:
   termination, VOP Filed, YASI HIGH, YASI LOW, YASI MOD, YASI
   UNCLASSIFIED, Unit, SPO, DCPO}} wide table which is difficult to read
 on paper. The difficulty is mitigated because of the ability to to zoom
-in on particular areas of interest, either by automating the reports to
-fit particular needs or through web based technologies (which will be
-discussed later.) It is also possible to filter data by specific
-variables. For example, if one just wanted YASI data:
+in on particular areas of interest, either by zooming into different
+areas of the PDF, automating the reports to fit particular needs, or
+through web based technologies (which will be discussed later.) It is
+also possible to filter data by specific variables. An example would be
+a chart of just YASI and caseload data per unit:
 
 \rowcolors{2}{lightgray}{white}
 \begin{table}[!h]
@@ -590,8 +599,8 @@ Rodney Purdy-Blake & 4 & 7 & 2 & 2 & 15\\
 
 \newpage
 
-Once the Excel data is in this format, it is easier to analyse. For
-instance, take a table of two units arranged by High risk cases:
+Once the AOIC data is in this ``long'' format, it is easier to analyse.
+For instance, take a table of two units arranged by High risk cases:
 
 \rowcolors{2}{lightgray}{white}
 \begin{table}[!h]
@@ -599,24 +608,24 @@ instance, take a table of two units arranged by High risk cases:
 \caption{\label{tab:tidy_2}GBO and Lawndale by High Risk: September, 2018}
 \centering
 \resizebox{\linewidth}{!}{
-\begin{tabular}[t]{lrrrrrrrrrrrrrlll}
+\begin{tabular}[t]{lrrrrrrrrrrrrrl}
 \hiderowcolors
 \toprule
-PO\_Name & Early Termination & Revoked-new offense/DOC-IDJJ & Revoked-Technical/DOC-IDJJ & Scheduled Termination & Social investigation & Supplemental social & Transferred out & Unsatisfactory termination & VOP Filed & YASI HIGH & YASI LOW & YASI MOD & YASI UNCLASSIFIED & Unit & SPO & DCPO\\
+PO\_Name & Early Termination & Revoked-new offense/DOC-IDJJ & Revoked-Technical/DOC-IDJJ & Scheduled Termination & Social investigation & Supplemental social & Transferred out & Unsatisfactory termination & VOP Filed & YASI HIGH & YASI LOW & YASI MOD & YASI UNCLASSIFIED & Unit\\
 \midrule
 \showrowcolors
-Tesa Newton-Hart & 0 & 0 & 0 & 2 & 0 & 0 & 0 & 0 & 0 & 10 & 6 & 5 & 1 & Polce Distrct 11 - Cal. 57 & Aaron Campbell & Jose Isais\\
-Laterrian Hill & 0 & 0 & 0 & 2 & 0 & 0 & 0 & 2 & 1 & 9 & 8 & 10 & 0 & Polce Distrct 11 - Cal. 57 & Aaron Campbell & Jose Isais\\
-Michael Muhammad & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 8 & 2 & 6 & 1 & Police district 2 - Cal 55 & Lloyd Marshall & Melissa Spooner\\
-Ernest Jones & 0 & 0 & 0 & 2 & 0 & 0 & 0 & 0 & 0 & 7 & 1 & 6 & 2 & Police district 2 - Cal 55 & Lloyd Marshall & Melissa Spooner\\
-Pamela Hudson & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 6 & 3 & 9 & 5 & Polce Distrct 11 - Cal. 57 & Aaron Campbell & Jose Isais\\
+Tesa Newton-Hart & 0 & 0 & 0 & 2 & 0 & 0 & 0 & 0 & 0 & 10 & 6 & 5 & 1 & Polce Distrct 11 - Cal. 57\\
+Laterrian Hill & 0 & 0 & 0 & 2 & 0 & 0 & 0 & 2 & 1 & 9 & 8 & 10 & 0 & Polce Distrct 11 - Cal. 57\\
+Michael Muhammad & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 8 & 2 & 6 & 1 & Police district 2 - Cal 55\\
+Ernest Jones & 0 & 0 & 0 & 2 & 0 & 0 & 0 & 0 & 0 & 7 & 1 & 6 & 2 & Police district 2 - Cal 55\\
+Pamela Hudson & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 6 & 3 & 9 & 5 & Polce Distrct 11 - Cal. 57\\
 \addlinespace
-Rodney Purdy-Blake & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 4 & 2 & 7 & 2 & Police district 2 - Cal 55 & Lloyd Marshall & Melissa Spooner\\
-Kenneth Ollins & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 3 & 9 & 11 & 3 & Polce Distrct 11 - Cal. 57 & Aaron Campbell & Jose Isais\\
-James Smith & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 1 & 3 & 9 & 3 & Police district 2 - Cal 55 & Lloyd Marshall & Melissa Spooner\\
-Campbell & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 1 & 0 & Polce Distrct 11 - Cal. 57 & Aaron Campbell & Jose Isais\\
-Rance Hopkins* & 0 & 0 & 0 & 0 & 8 & 0 & 9 & 0 & 0 & 0 & 0 & 0 & 31 & Polce Distrct 11 - Cal. 57 & Aaron Campbell & Jose Isais\\
-ADMIN & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & Police district 2 - Cal 55 & Lloyd Marshall & Melissa Spooner\\
+Rodney Purdy-Blake & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 4 & 2 & 7 & 2 & Police district 2 - Cal 55\\
+Kenneth Ollins & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 3 & 9 & 11 & 3 & Polce Distrct 11 - Cal. 57\\
+James Smith & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 1 & 3 & 9 & 3 & Police district 2 - Cal 55\\
+Campbell & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 1 & 0 & Polce Distrct 11 - Cal. 57\\
+Rance Hopkins* & 0 & 0 & 0 & 0 & 8 & 0 & 9 & 0 & 0 & 0 & 0 & 0 & 31 & Polce Distrct 11 - Cal. 57\\
+ADMIN & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & Police district 2 - Cal 55\\
 \bottomrule
 \end{tabular}}
 \end{table}
@@ -661,10 +670,12 @@ ADMIN & Police district 2 - Cal 55 & 0 & 0 & 0 & 0 & 0\\
 
 \end{landscape}
 
-\hypertarget{plots-and-graphs}{%
-\subsection{Plots and Graphs}\label{plots-and-graphs}}
+\hypertarget{r-markdown-better-tools-for-plots-and-graphs}{%
+\subsection{R Markdown: Better Tools for Plots and
+Graphs}\label{r-markdown-better-tools-for-plots-and-graphs}}
 
-Like Excel, this format can be plotted:
+This work is done in \texttt{R\ and\ R\ Markdown}. Like Excel, these
+tools can create graphs and charts:
 
 \begin{figure}[h]
 \includegraphics[width=0.9\linewidth,height=0.9\textheight,]{reporting_updates_files/figure-latex/initial_graphs-1} \caption{GBO and Lawndale, September 2018}\label{fig:initial_graphs}
@@ -672,10 +683,11 @@ Like Excel, this format can be plotted:
 
 \newpage
 
-And unlike Excel, this format easily lends itself to additional
+And unlike Excel, these tools easily lends itself to additional
 visualizations, such as filtering results to focus on specific
-variables, such as Social Investigations and VOP's Filed. For this
-example, the background code is included to show how this work is done.
+variables, such as Social Investigations and VOPs Filed. In the
+following example, the background code is included to show how this work
+is done.
 
 First as a chart:
 
@@ -747,7 +759,7 @@ And as a graph:
 In both of the previous examples, snippets of code were included in the
 document to showcase how \texttt{R} handles filtering. What makes this
 method superior to Excel is that the above code can be reused with a
-similar dataset. For instance, plotting the same AOIC stas with Markham
+similar data set. For instance, plotting the same AOIC stas with Markham
 North:
 
 \begin{Shaded}
@@ -773,8 +785,15 @@ North:
 \caption{Socials and VOPs in Markham North}
 \end{figure}
 
-With Excel, each months need to be recalculated from the specific sheet.
+With Excel, each month need to be recalculated from the specific sheet.
 With \texttt{R}, the code can be reused with limited changes.
+Furthermore, if additional verbiage was required to provide context for
+a visualization, one would have to export into Word to write the
+document. With R, one writes the code and the context in the same
+document, which can significantly improve workflow.
+
+\hypertarget{shiny}{%
+\subsection{Shiny}\label{shiny}}
 
 With additional resources, specifically installing free software on a
 the Chief Judge's server, the department would be able to run these same
@@ -784,21 +803,40 @@ dashboards and programmable reports that can updated quickly. Additional
 examples of how Shiny can be used can be found
 \href{https://shiny.rstudio.com/gallery/}{here.}
 
-\hypertarget{resources}{%
-\section{Resources}\label{resources}}
+\hypertarget{gis}{%
+\section{GIS}\label{gis}}
+
+The award winning Cook County Geographic Information Systems department
+is willing to develop a number of dashboard and applications for the
+court. If a Data, Research, and Visualization unit was created, this uni
+would be able to build internal capacity to utilize GIS tools to go
+beyond the aforementioned dashboards. Even if the extent of the work was
+limited to using the GIS tools to turn addresses into latitude and
+longitude, this would allow for the unit to create regular programmable
+reports, such as unit level heat maps of risk levels or neighborhood
+``hot spots.'' Creating a unit to facilitate all of the department's
+Data needs, including the tool of GIS, can extend the viability and
+utility of the CFive investment.
+
+\hypertarget{specific-recommendations}{%
+\section{Specific Recommendations}\label{specific-recommendations}}
 
 \texttt{CFive\ Supervisor} will encourage the department to continue
 down a data driven path. Maximizing the return on this investment
 requires additional departmental resources, the minimum of which is a
-system administrator to ensure data integrity. Just doing the minimum,
-however, will not make the most of this new system (and the changes to
-procedure that is sure to follow.) To this end, a new unit should be
-created to ensure that handles all department data and visualizations.
-This would include the short term goals of changing the AOIC stat format
-to a Tidy one and as well as producing stats until
+system administrator to ensure \texttt{Supervisor\textquotesingle{}s}
+data integrity. Just doing the minimum, however, will not make the most
+of this new system (and the changes to procedure that is sure to
+follow.) To this end, a new unit should be created to ensure that
+handles all department data and visualizations. This would include the
+short term goals of changing the AOIC stat format to a Tidy one and as
+well as producing stats until
 \texttt{CFive\ Supervisor\textquotesingle{}s} is fully implemented, as
 well as long term goals of using our data to ensure the creation of data
-driven policies, procedures, and programs:
+driven policies, procedures, and programs.
+
+\hypertarget{mission-statement}{%
+\subsection{Mission Statement}\label{mission-statement}}
 
 \emph{It is the policy of the Cook County Juvenile Probation and Court
 Services Department to maintain the highest level of data integrity
@@ -806,6 +844,9 @@ within the department and with community partners and to use this data
 to develop polices, procedures, and programs that enhance the
 possibility of long term success for all young people under the care of
 the court.}
+
+\hypertarget{structure-of-the-unit}{%
+\subsection{Structure of the Unit}\label{structure-of-the-unit}}
 
 This unit would house:
 
@@ -822,7 +863,7 @@ Two such individuals already do this work in the department, so
 including them in this new department would only service to solidify
 this commitment to data driven approaches. The role of CFive Systems
 Administrator will need to be a permanent position for maintaining the
-systemt; therefore it is logical to add this position to a unit that is
+system; therefore it is logical to add this position to a unit that is
 focused on data.
 
 In addition to reporting and collection tasks, the supervisor of the
@@ -834,8 +875,7 @@ from the insights gained by maximizing the utility of
 would suffice for current needs. In creating this unit, the department
 frames data as a ``mission critical'' aspect, and redistributes all of
 the varied data tasks under one roof. It is not a revolutionary change,
-simple an evolution of the departments needs, capabilities, and
-opportunities.
+simple an evolution of the departments capabilities and opportunities.
 
 
 \end{document}
