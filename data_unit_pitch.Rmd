@@ -234,7 +234,6 @@ cal_55_2 %>%
 * Adding an additional unit,the issue with messy data becomes apparent
 
 ---
-
 ## GBO and Lawndale[^2]
 
 ```{r GBO_and_Lawndale, include=TRUE, echo = FALSE}
@@ -246,6 +245,7 @@ cal_55_2 %>%
 ```
 
 ---
+### GBO and Lawndale Continued
 
 It is still relatively easy to compare and contrast intra-unit data. It is far from ideal. Specifically, one has to read horizontally and vertically to compare baseline data month over month. Comparing between units is more difficult, as each unit is a different series of rows. With each unit added to this format, the more difficult it becomes to not just compare data points, but to find data points. For example:
 
