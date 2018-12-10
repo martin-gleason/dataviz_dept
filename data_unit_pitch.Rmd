@@ -216,6 +216,7 @@ head(June[,1:11], n = 10) %>%
 ---
 
 ## GBO As a Demo
+
 For example, consider the GBO[^1] unit.
 
 ```{r gbo_demo, include=TRUE, echo = FALSE}
@@ -231,6 +232,7 @@ cal_55_2 %>%
 ### GBO Continued
 
 * Individual stats are clear
+* Especially if columns are limited to PO data
 * Adding an additional unit,the issue with messy data becomes apparent
 
 ---
@@ -247,36 +249,59 @@ cal_55_2 %>%
 ---
 ### GBO and Lawndale Continued
 
-It is still relatively easy to compare and contrast intra-unit data. It is far from ideal. Specifically, one has to read horizontally and vertically to compare baseline data month over month. Comparing between units is more difficult, as each unit is a different series of rows. With each unit added to this format, the more difficult it becomes to not just compare data points, but to find data points. For example:
+* Multiple POs per Column
 
+* Individuals stas are duplicated
+
+  * In this format, stas are duplicated with each unit
+  
+* Intra-unit stas are easy to read
+
+* Inter-unit stats become more difficult
+  * Each unit adds dramatically to this difficult
+  
+---
+# GBO, Lawndale, and 8
 ```{r GBO_Lawndale_and_53, include=TRUE, echo = FALSE}
 cal_55_2 %>% 
   bind_rows(cal_57) %>%
   bind_rows(cal_53) %>%
-  kable(booktabs = TRUE, format = "latex", caption = "GBO, Lawndale, and 8th District: September, 2018") %>%
-  kable_styling(latex_options = c( "striped", "scale_down", "HOLD_position"),
-                stripe_color = "lightgray")
+  kable(booktabs = TRUE, format = "html", caption = "GBO, Lawndale, and 8th District: September, 2018") %>%
+  kable_styling(bootstrap_options = c("condensed", "hover"), font_size = 16) %>%
+  scroll_box(width = "720px", height = "425px")
 ```
 
 ---
-The current excel format solves this issue by adding two or three empty rows; however, the lack of standard difference between rows makes machine based analysis slower and more time consuming. It also makes plotting data exceptionally difficult.
-
-\blandscape
-
-## New format
+# New Format
 The solution looks like this:
 
 ```{r tidy, include=TRUE, echo = FALSE, message = FALSE}
   cal_55_2 %>% 
     tidy_up() %>% 
-    kable(booktabs = TRUE, format = "latex", caption = "GBO: September, 2018") %>%
-    kable_styling(latex_options = c("striped", "hold_position", "scale_down"),
-                stripe_color = "lightgray")
+    kable(booktabs = TRUE, format = "html", caption = "GBO: September, 2018") %>%
+  kable_styling(bootstrap_options = c("condensed", "hover"), font_size = 16) %>%
+  scroll_box(width = "720px", height = "425px")
 
 ```
 ---
+## New Format: Pros and Cons
 
-This create a difficult-to-read 17 columns[^2] wide table which is difficult to read on paper. The difficulty is mitigated because of the ability to to zoom in on particular areas of interest, either by zooming into different areas of the PDF, automating the reports to fit particular needs, or through web based technologies (which will be discussed later.) It is also possible to filter data by specific variables. An example would be a chart of just YASI and caseload data per unit:
+.pull-left[
+### Cons
+* It is difficult to read a 17-column[^2] wide table
+  *   Scroll bars make it tolerable
+  *   Paper requires changing layout and font size
+  *   PDFs can allow for "zooming in" to focus on particular items
+]
+
+.pull-right[
+* Tidy format allows for faster selction of specific variables
+* Filtering for specific observations is faster
+* Computed variables (averge, total number of POs) can be done by the software
+]
+
+---
+## New Format: Visualizations
 
 ```{r yasi, include=TRUE, echo=FALSE, message = FALSE}
 cal_55_2 %>%
@@ -285,14 +310,13 @@ cal_55_2 %>%
          Low = `YASI LOW`, Unclassified = `YASI UNCLASSIFIED`) %>%
   rowwise() %>%
   mutate(Total = sum(Low, Mod, High, Unclassified)) %>%
-    kable(booktabs = TRUE, format = "latex", caption = "Case Totals, GBO: September, 2018") %>%
-    kable_styling(latex_options = c("striped", "hold_position", "scale_down"),
-                stripe_color = "lightgray")
+  kable(booktabs = TRUE, format = "html", caption = "GBO: September, 2018") %>%
+  kable_styling(bootstrap_options = c("condensed", "hover"), font_size = 16) %>%
+  scroll_box(width = "720px", height = "425px")
 ```
 
 ---
-
-Once the AOIC data is in this "long" format, it is easier to analyse. For instance, take a table of two units arranged by High risk cases:
+## Sorted by Risk
 
 ```{r tidy_2, include=TRUE, echo = FALSE, message = FALSE}
 
@@ -305,12 +329,14 @@ cal_57 %>%
   select(1:15) %>%
   arrange(desc(`YASI HIGH`)) %>%
   kable(booktabs = TRUE, format = "latex", caption = "GBO and Lawndale by High Risk: September, 2018") %>%
-  kable_styling(latex_options = c("striped", "hold_position", "scale_down"),
-                stripe_color = "lightgray")
+  kable_styling(bootstrap_options = c("condensed", "hover"), font_size = 16) %>%
+  scroll_box(width = "720px", height = "425px")
 
 ```
 
-Crowding all of the columns onto one page is not ideal; however, one can easily see all of the stats by unit for a given month. Filtering by case load stats becomes exceptionally easier:[^3]
+---
+
+Crowding all of the columns onto one page is not ideal; however, one can easily see all of the stats by unit for a given month. Filtering by case load stats becomes exceptionally easier:[^4]
 ---
 
 ```{r gbo_lawndale_caseloadstats, include=TRUE,echo=FALSE, message = FALSE}
@@ -325,15 +351,16 @@ cal_57 %>%
   rowwise() %>%
   mutate(Total = sum(Low, Mod, High, Unclassified)) %>%
   arrange(desc(Total)) %>%
-    kable(booktabs = TRUE, format = "latex", caption = "Case Totals, Lawndale and GBO: September, 2018") %>%
-    kable_styling(latex_options = c("striped", "hold_position", "scale_down"),
-                stripe_color = "lightgray")
+  kable(booktabs = TRUE, format = "latex", caption = "Case Totals, Lawndale and GBO: September, 2018") %>%
+  kable_styling(bootstrap_options = c("condensed", "hover"), font_size = 16) %>%
+  scroll_box(width = "720px", height = "425px")
 ```
 
 ---
 
 ## R Markdown: Better Tools for Plots and Graphs
-This work is done in `R and R Markdown`. Like Excel, these tools can create graphs and charts:
+* This work is done in `R and R Markdown`. 
+* Like Excel, these tools can create graphs and charts
 
 ```{r initial_graphs, include = TRUE, echo = FALSE, fig.cap= "GBO and Lawndale, September 2018", out.height="90%", out.width="90%", out.extra="", fig.pos="h"}
 
@@ -369,9 +396,8 @@ cal_57 %>%
   filter(`Social Investigation` > 0 | VOP > 0) %>%
   kable(booktabs = TRUE, format = "latex", 
         caption = "GBO: September, 2018") %>%
-  kable_styling(latex_options = c("striped", 
-                                  "hold_position", "scale_down"),
-                stripe_color = "lightgray")
+  kable_styling(bootstrap_options = c("condensed", "hover"), font_size = 16) %>%
+  scroll_box(width = "720px", height = "425px")
 ```
 
 And as a graph:
@@ -425,5 +451,5 @@ The award winning Cook County Geographic Information Systems department is willi
 
 [^1]: On the standard AOIC spreadsheet, GBO's stats are between rows 401 and 418.
 [^2]: On the standard AOIC spreadsheet, Lawndale's rows 201-218.
-[]: The columns are: *`r names(cal_55_2 %>% tidy_up()) %>% as.vector()`*
-[^3]: Please note the spelling errors come from excel and not the code written in this document.
+[^3]: The columns are: *`r names(cal_55_2 %>% tidy_up()) %>% as.vector()`*
+[^4]: Please note the spelling errors come from excel and not the code written in this document.
