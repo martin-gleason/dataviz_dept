@@ -18,6 +18,13 @@ library(kableExtra)
 source("cleaning_aoic.R")
 
 ```
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover(); 
+});
+</script>
+
  
 # Executive Summary
 
@@ -25,13 +32,13 @@ source("cleaning_aoic.R")
 
 * This unit will collect, clean, analyze, and present data to ensure the department is data-drive, thereby maximizing the investment in *CFive Supervisor.*
 
-* This unit would use purchased, or free, tools including [Office 365](https://products.office.com/en-us/business/office) and free software, as [R](https://www.r-project.org), to maximize the return on the investment.
+* This unit would use already available tools, including [Office 365](https://products.office.com/en-us/business/office) and [R](https://www.r-project.org), to maximize the return on *CFive Supervisor.*
 
 * This unit would collapse existing resources to:
 
   * Prepare for [CFive's Supervisor](https://www.cfive.com/products/supervisor/)'s data collection and dashboards featuers
   
-  * Works with the [Cook County Geographic Information Systems Department](https://www.cookcountyil.gov/agency/geographic-information-systems-gis-0) to create new, data driven tools. 
+  * Work with the [Cook County Geographic Information Systems Department](https://www.cookcountyil.gov/agency/geographic-information-systems-gis-0) to create new, data driven tools. 
   
 ---
 # Unit Mission Statement
@@ -40,7 +47,7 @@ source("cleaning_aoic.R")
 ---
 # Specific Recommendations
 
-* At a minimum, a system administrator is needed to ensure `Supervisor's` data integrity.
+* At a minimum, a system administrator is needed to ensure *Supervisor's* data integrity.
 
 * More resources would allow for more insights including
 
@@ -49,55 +56,84 @@ source("cleaning_aoic.R")
   * [Developing GIS solutions](https://www.cookcountyil.gov/agency/geographic-information-systems-gis-0)
   
 ---
+# Unit Structure
+.center[
+.pull-left[![: 55%](imgs/rick_right.jpg)]
 
-## Unit Structure
-This unit would house:
+.pull-right[
 
-* Two support professionals to help collect data and generate reports and visualizations. 
+* Two support professionals 
+
 * The CFive System Administrator
-* The supervisor of the unit would also be responsible for maintaining and leveraging all of Department's data sharing agreements.
-* Additional staff maybe needed to help develop programs that stem from the insights gained by maximizing the utility of `CFive Supervisor`.
-* It is not a revolutionary change, simple an evolution of the departments capabilities and opportunities.
-  * In creating this unit, the department frames data as a "mission critical" aspect, and redistributes all of the varied data tasks under one roof.
+
+* Program managing officers
+]]
 ---
-# The Issue
+
+# Unit Responsibilties
+
+* Collect, clean, and store data
+
+* Assist the department in evaluating program effectiveness
+
+* Maintaining and leverage all of Department's data sharing agreements
+
+* Expand the development of CFive's reporting and data visiulization capabilities
+
+* It is not a revolutionary change, simple an evolution of the departments capabilities and opportunities
+
+* A Data, Research, and Visualization Unit solves the *mission critical* need of evidenced based practices
+
+---
+# AOIC Stats as an Example
 
 Consider the current AOIC report, presented in the following format:
 
 ```{r first_8, include = TRUE, echo = FALSE}
-kable(head(June[ , 1:8]), caption = "First Eight Columns of CFive Supervisor") %>%
-  kable_styling(latex_options = c("striped", "scale_down", "hold_position"))
-```
- 
-These eight columns are the POs, per unit, at a glance, depending on the number of POs in the unit and the number of cases assigned to the Supervisor.
+
+first_eight <- head(June[ , 1:8])
+
+first_eight %>% 
+  kable( format = "html") %>%
+  kable_styling(bootstrap_options = c("bordered", "responsive", "condensed "))
+
+``` 
+
+The first of the eight columns contain the DCPO, SPO, and police district. 
+
+The remaining colums contain the PO's case load data.
 ---
 # Columns Nine Through Eleven: 
 ## Aggregates
 
 ```{r 9_11, include = TRUE, echo = FALSE}
-kable(head(June[ , 9:11]), caption = "Caseload Aggregate Data")%>%
-  kable_styling(latex_options = c("striped", "HOLD_position"))
+kable(head(June[ , 9:11]), caption = "Caseload Aggregate Data") %>%
+  kable_styling("striped")
 ```
 
+Calculated values, computed rowise, tally caseload totals and averages.
 ---
 # VOP and Caseload Averages
-
 ```{r 12-19, include = TRUE, echo = FALSE}
-kable(head(June[ , 12:19]), caption = "VOPs and Caseload Averages") %>%
-  kable_styling(latex_options = c("striped", "scale_down", "HOLD_position"))
+kable(head(June[ , 13:19])) %>%
+  kable_styling(bootstrap_options = c("striped", "condensed", "responsive"), font_size = 16)  
 ```
+
+The remaining columns are a combination of unit, division, and department wide data used for baseline comparision.
 
 ---
 # Issues with this format:
 
 * Storing and presenting AOIC data in this fashion limits additional investigation of the data. 
 
-* Multiple spreadsheets must be created and then merged in order to do month-month comparisons. 
+  * Multiple spreadsheets must be created and merged in order to do month-month comparisons. 
 
-* Compiling said spreadsheets increases the chances of errors:
-  * Due to spelling mistakes
-  * Accidentally deleting spreadsheet structure
-  * Over-writing spreadsheets while saving them.
+  * Compiling said spreadsheets increases the chances of errors:
+      * Due to spelling mistakes
+      * Accidentally deleting spreadsheet structure
+      * Over-writing spreadsheets while saving them.
+      
+* Excel does not become a website or a slide presentation easily
   
 ---
 # CFive's Eventual Solution
@@ -106,24 +142,33 @@ kable(head(June[ , 12:19]), caption = "VOPs and Caseload Averages") %>%
 
 * As of the current understanding of the Statement of Work, *Supervisor* will pull these necessary numbers from the system as a standard report.
 
-* Unfortunately, the reporting features are not completed and not available for preview. 
-
---- 
-This gap presents an opportunity for the department to reformat any and all of the statistical forms and reports. If the department invests the resources, this unit ensure that our data and visualization needs are not just met, but exceeded. The *Supervisor's Go-Live *[^1] date provides an incentive to get this material completed quickly, in order to ensure the design of the forms and reports fits the need of the department.
+* Unfortunately, the reporting features are not completed nor are they available for preview. 
 
 ---
+# The Solution: Tidy Data
 
-# New Format and Methods: The Solution
-Implementing [tidy data](http://vita.had.co.nz/papers/tidy-data.html) is the first step this unit would take in order to help the transformation of our department into a data-driven office. Tidy data is short hand for:
+* Implementing [tidy data](http://vita.had.co.nz/papers/tidy-data.html) is the first step in the transformation of data-driven office. 
 
-* Columns are single variable
-* Rows are single observation
-* Each observational unit forms a table
+* Tidy data is short hand for:
+
+    * Columns are single variable
+    * Rows are single observation
+    * Each observational unit forms a table
+
+.center[![: 75%](imgs/tidy_data1.png)]
 
 ---
+# AOIC Revisited
+## This document violates all of the rules of tidy data.
 
-Continuing with the AOIC spreadsheet example, this document violates all of the rules of tidy data. The easiest example to understand is how each sheet is a collection of observations and aggregates across units. To be considered tidy, each geographic unit should have their own worksheet, with separate worksheets for averages and other calculated variables. 
+```{r aoic_highlighted, include = TRUE, echo=FALSE}
 
+head(June, n = 10) %>% 
+  kable() %>%
+  kable_styling(bootstrap_options = c("condensed", "hover"), font_size = 16) %>%
+  scroll_box(width = "720px", height = "425px")
+
+```
 While it appears that the sheets follow the first and second rules; however, considering what is being tracked, the columns and rows are transposed. Put differently, in the current format, POs are variables when they they are actually tracking observations. In tidy terms this makes POs *rows.* 
 ---
 
