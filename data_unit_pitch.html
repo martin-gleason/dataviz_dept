@@ -324,7 +324,7 @@ The remaining columns are a combination of unit, division, and department wide d
 ---
 # AOIC Revisited
 ## This document violates all of the rules of tidy data.
-
+ 
 &lt;div style="border: 1px solid #ddd; padding: 5px; overflow-y: scroll; height:425px; overflow-x: scroll; width:720px; "&gt;&lt;table class="table table-condensed table-hover" style="font-size: 16px; margin-left: auto; margin-right: auto;"&gt;
  &lt;thead&gt;
   &lt;tr&gt;
@@ -562,6 +562,33 @@ The remaining columns are a combination of unit, division, and department wide d
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;&lt;/div&gt;
+
+&lt;table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; position &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Hover over these items &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; top &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; &lt;span style="     " data-toggle="popover" data-trigger="hover" data-placement="top" data-content="top"&gt;Message on top&lt;/span&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; bottom &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; &lt;span style="     " data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="bottom"&gt;Message on bottom&lt;/span&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; right &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; &lt;span style="     " data-toggle="popover" data-trigger="hover" data-placement="right" data-content="right"&gt;Message on right&lt;/span&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; left &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; &lt;span style="     " data-toggle="popover" data-trigger="hover" data-placement="left" data-content="left"&gt;Message on left&lt;/span&gt; &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 While it appears that the sheets follow the first and second rules; however, considering what is being tracked, the columns and rows are transposed. Put differently, in the current format, POs are variables when they they are actually tracking observations. In tidy terms this makes POs *rows.* 
 ---
 

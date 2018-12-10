@@ -160,40 +160,89 @@ The remaining columns are a combination of unit, division, and department wide d
 ---
 # AOIC Revisited
 ## This document violates all of the rules of tidy data.
-
+ 
 ```{r aoic_highlighted, include = TRUE, echo=FALSE}
 
-head(June, n = 10) %>% 
-  kable() %>%
+head(June[,1:11], n = 10) %>% 
+  mutate(X__1 = cell_spec(X__1, 
+                          popover = spec_popover(content = "Column contains multiple variables",
+                                                       position = "top")),
+         X__2 = cell_spec(X__2,
+                          popover = spec_popover(content = "PO Donnelly",
+                                                 position = "top")),
+         X__3 = cell_spec(X__3,
+                          popover = spec_popover(content = "PO Korte",
+                                                 position = "top")),
+         X__4 = cell_spec(X__4,
+                          popover = spec_popover(content = "PO Malave",
+                                                 position = "top")),
+         X__5 = cell_spec(X__5,
+                          popover = spec_popover(content = "PO O\\'Rourke",
+                                                 position = "top")),
+         X__6 = cell_spec(X__6,
+                          popover = spec_popover(content = "PO Pulido",
+                                                 position = "top")),
+         X__7 = cell_spec(X__7,
+                          popover = spec_popover(content = "SPO Bufano",
+                                                 position = "top")),
+         X__8 = cell_spec(X__8,
+                          popover = spec_popover(content = "Blank column to force formatting",
+                                                 position = "top")),
+         X__9 = cell_spec(X__9,
+                          popover = spec_popover(content = "Caseload Total should be computed number on a seperate page.",
+                                                 position = "top")),
+         X__10 = cell_spec(X__10,
+                          popover = spec_popover(content = "Caseload Average, per unit, is also a computed number that should be calculated and displayed elsewhere.",
+                                                 position = "top")),
+         
+         ) %>%
+  kable(escape = FALSE) %>%
   kable_styling(bootstrap_options = c("condensed", "hover"), font_size = 16) %>%
   scroll_box(width = "720px", height = "425px")
 
+
 ```
-While it appears that the sheets follow the first and second rules; however, considering what is being tracked, the columns and rows are transposed. Put differently, in the current format, POs are variables when they they are actually tracking observations. In tidy terms this makes POs *rows.* 
+
+---
+## AOIC Stats: Tidy Review
+
+* POs are not variables
+  * They track observations
+  * Therefore, POs should be Rows
+  
+* Columns contain have multiple units
+
+* Calculated figures, while not necessarily messy, are neither variables or observations
 ---
 
 ## GBO As a Demo
-For example, consider the GBO unit. On the standard AOIC spreadsheet, GBO's stats are between rows 401 and 418:
+For example, consider the GBO[^1] unit.
 
 ```{r gbo_demo, include=TRUE, echo = FALSE}
 cal_55_2 %>% 
-  kable(booktabs = TRUE, format = "latex", caption = "September, 2018") %>%
-  kable_styling(latex_options = c( "striped", "scale_down", "hold_position"),
-                stripe_color = "lightgray") 
+  kable(booktabs = TRUE, format = "html", caption = "September, 2018") %>%
+  kable_styling(bootstrap_options = c("condensed", "hover"), font_size = 16) %>%
+  scroll_box(width = "720px", height = "425px")
+
 
 ```
 
-At a glance, one can see how individual officers case loads have changed over the previous month. However, if one was to compare GBO and Lawndale (rows 201-218), the issue with messy data becomes apparent:
+---
+### GBO Continued
+
+* Individual stats are clear
+* Adding an additional unit,the issue with messy data becomes apparent
+
 ---
 
-## GBO and Lawndale
+## GBO and Lawndale[^2]
 
 ```{r GBO_and_Lawndale, include=TRUE, echo = FALSE}
 cal_55_2 %>% 
   bind_rows(cal_57) %>%
-  kable(booktabs = TRUE, format = "latex", caption = "GBO and Lawndale: September, 2018") %>%
-  kable_styling(latex_options = c( "striped", "scale_down", "hold_position"),
-                stripe_color = "lightgray")
+  kable(booktabs = TRUE, format = "html", caption = "GBO and Lawndale: September, 2018") %>%
+  kable_styling(bootstrap_options = c("condensed", "hover"), font_size = 16) %>%
+  scroll_box(width = "720px", height = "425px")
 ```
 
 ---
@@ -374,6 +423,7 @@ With additional resources, specifically installing free software on a the Chief 
 The award winning Cook County Geographic Information Systems department is willing to develop a number of dashboard and applications for the court. If a Data, Research, and Visualization unit was created, this uni would be able to build internal capacity to utilize GIS tools to go beyond the aforementioned dashboards. Even if the extent of the work was limited to using the GIS tools to turn addresses into latitude and longitude, this would allow for the unit to create regular programmable reports, such as unit level heat maps of risk levels or neighborhood "hot spots." Creating a unit to facilitate all of the department's Data needs, including the tool of GIS, can extend the viability and utility of the CFive investment.
 ---
 
-[^1]: As of this writing, Go-Live is set for March 29, 2019
-[^2]: The columns are: *`r names(cal_55_2 %>% tidy_up()) %>% as.vector()`*
+[^1]: On the standard AOIC spreadsheet, GBO's stats are between rows 401 and 418.
+[^2]: On the standard AOIC spreadsheet, Lawndale's rows 201-218.
+[]: The columns are: *`r names(cal_55_2 %>% tidy_up()) %>% as.vector()`*
 [^3]: Please note the spelling errors come from excel and not the code written in this document.
