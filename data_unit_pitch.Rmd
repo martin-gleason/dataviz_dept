@@ -13,18 +13,17 @@ output:
       highlightLines: true
       countIncrementalSlides: false
 ---
-```{r setup, include= FALSE, echo = FALSE, warning=FALSE}
-library(kableExtra)
-source("cleaning_aoic.R")
-
-```
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
     $('[data-toggle="popover"]').popover(); 
 });
 </script>
+```{r setup, include= FALSE, echo = FALSE, warning=FALSE}
+library(kableExtra)
+source("cleaning_aoic.R")
 
+```
  
 # Executive Summary
 
@@ -58,7 +57,7 @@ $(document).ready(function(){
 ---
 # Unit Structure
 .center[
-.pull-left[![: 55%](imgs/rick_right.jpg)]
+.pull-left[![:scale 55%](imgs/rick_right.jpg)]
 
 .pull-right[
 
@@ -101,7 +100,7 @@ first_eight %>%
 
 The first of the eight columns contain the DCPO, SPO, and police district. 
 
-The remaining colums contain the PO's case load data.
+The remaining seven colums contain the PO's case load data.
 ---
 # Columns Nine Through Eleven: 
 ## Aggregates
@@ -159,7 +158,7 @@ The remaining columns are a combination of unit, division, and department wide d
 
 ---
 # AOIC Revisited
-## This document violates all of the rules of tidy data.
+*(Popups for added detail, not currently working)*
  
 ```{r aoic_highlighted, include = TRUE, echo=FALSE}
 
@@ -206,13 +205,17 @@ head(June[,1:11], n = 10) %>%
 ---
 ## AOIC Stats: Tidy Review
 
+.center[.top[![:scale 50%](imgs/homerStudy.gif)]]
+
 * POs are not variables
   * They track observations
-  * Therefore, POs should be Rows
+  * Therefore, POs should be **rows**
   
 * Columns contain have multiple units
 
-* Calculated figures, while not necessarily messy, are neither variables or observations
+* Calculated figures, while not necessarily messy, are neither variables nor observations
+
+
 ---
 
 ## GBO As a Demo

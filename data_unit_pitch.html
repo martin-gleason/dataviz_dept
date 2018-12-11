@@ -11,7 +11,6 @@
   <body>
     <textarea id="source">
 
-
 &lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"&gt;&lt;/script&gt;
 &lt;script&gt;
 $(document).ready(function(){
@@ -52,7 +51,7 @@ $(document).ready(function(){
 ---
 # Unit Structure
 .center[
-.pull-left[![: 55%](imgs/rick_right.jpg)]
+.pull-left[![:scale 55%](imgs/rick_right.jpg)]
 
 .pull-right[
 
@@ -162,7 +161,7 @@ Consider the current AOIC report, presented in the following format:
 
 The first of the eight columns contain the DCPO, SPO, and police district. 
 
-The remaining colums contain the PO's case load data.
+The remaining seven colums contain the PO's case load data.
 ---
 # Columns Nine Through Eleven: 
 ## Aggregates
@@ -323,7 +322,7 @@ The remaining columns are a combination of unit, division, and department wide d
 
 ---
 # AOIC Revisited
-## This document violates all of the rules of tidy data.
+*(Popups for added detail, not currently working)*
  
 &lt;div style="border: 1px solid #ddd; padding: 5px; overflow-y: scroll; height:425px; overflow-x: scroll; width:720px; "&gt;&lt;table class="table table-condensed table-hover" style="font-size: 16px; margin-left: auto; margin-right: auto;"&gt;
  &lt;thead&gt;
@@ -478,13 +477,17 @@ The remaining columns are a combination of unit, division, and department wide d
 ---
 ## AOIC Stats: Tidy Review
 
+.center[.top[![:scale 50%](imgs/homerStudy.gif)]]
+
 * POs are not variables
   * They track observations
-  * Therefore, POs should be Rows
+  * Therefore, POs should be **rows**
   
 * Columns contain have multiple units
 
-* Calculated figures, while not necessarily messy, are neither variables or observations
+* Calculated figures, while not necessarily messy, are neither variables nor observations
+
+
 ---
 
 ## GBO As a Demo
