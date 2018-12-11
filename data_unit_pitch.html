@@ -11,11 +11,13 @@
   <body>
     <textarea id="source">
 
-&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"&gt;
+&lt;/script&gt;
 &lt;script&gt;
 $(document).ready(function(){
-    $('[data-toggle="popover"]').popover(); 
+  $('[data-toggle="popover"]').popover(); 
 });
+
 &lt;/script&gt;
 
  
@@ -35,6 +37,7 @@ $(document).ready(function(){
   
 ---
 # Unit Mission Statement
+
 *It is the policy of the Cook County Juvenile Probation and Court Services Department to maintain the highest level of data integrity within the department and with community partners and to use this data to develop polices, procedures, and programs that enhance the possibility of long term success for all young people under the care of the court.*
 
 ---
@@ -50,19 +53,18 @@ $(document).ready(function(){
   
 ---
 # Unit Structure
-.center[
-.pull-left[![:scale 55%](imgs/rick_right.jpg)]
+
+.pull-left[![:scale 85%](imgs/rick_right.jpg)]
 
 .pull-right[
-
 * Two support professionals 
 
 * The CFive System Administrator
 
 * Program managing officers
-]]
----
+]
 
+---
 # Unit Responsibilties
 
 * Collect, clean, and store data
@@ -285,7 +287,7 @@ Calculated values, computed rowise, tally caseload totals and averages.
 The remaining columns are a combination of unit, division, and department wide data used for baseline comparision.
 
 ---
-# Issues with this format:
+# Issues with this format
 
 * Storing and presenting AOIC data in this fashion limits additional investigation of the data. 
 
@@ -317,11 +319,13 @@ The remaining columns are a combination of unit, division, and department wide d
     * Columns are single variable
     * Rows are single observation
     * Each observational unit forms a table
+    * Moving from Excel to R 
 
-.center[![: 75%](imgs/tidy_data1.png)]
+.center[![:scale 60%](imgs/tidy_data1.png)]
 
 ---
 # AOIC Revisited
+
 *(Popups for added detail, not currently working)*
  
 &lt;div style="border: 1px solid #ddd; padding: 5px; overflow-y: scroll; height:425px; overflow-x: scroll; width:720px; "&gt;&lt;table class="table table-condensed table-hover" style="font-size: 16px; margin-left: auto; margin-right: auto;"&gt;
@@ -489,10 +493,9 @@ The remaining columns are a combination of unit, division, and department wide d
 
 
 ---
-
 ## GBO As a Demo
 
-For example, consider the GBO[^1] unit.
+For example, consider the GBO unit.
 
 &lt;div style="border: 1px solid #ddd; padding: 5px; overflow-y: scroll; height:425px; overflow-x: scroll; width:720px; "&gt;&lt;table class="table table-condensed table-hover" style="font-size: 16px; margin-left: auto; margin-right: auto;"&gt;
 &lt;caption style="font-size: initial !important;"&gt;September, 2018&lt;/caption&gt;
@@ -694,13 +697,19 @@ For example, consider the GBO[^1] unit.
 
 ---
 ### GBO Continued
+.pull-left[
+* Individual figures are clear
+* Columns are clearly PO Stats
+* Rows indicate tracked observations
+]
 
-* Individual stats are clear
-* Especially if columns are limited to PO data
-* Adding an additional unit,the issue with messy data becomes apparent
+.pull-right[![:scale 90%](imgs/sofarsogood.gif)]
+&lt;/br&gt;
+&lt;/br&gt;
 
+## One additional unit makes the data twice as messy.
 ---
-## GBO and Lawndale[^2]
+## GBO and Lawndale
 
 &lt;div style="border: 1px solid #ddd; padding: 5px; overflow-y: scroll; height:425px; overflow-x: scroll; width:720px; "&gt;&lt;table class="table table-condensed table-hover" style="font-size: 16px; margin-left: auto; margin-right: auto;"&gt;
 &lt;caption style="font-size: initial !important;"&gt;GBO and Lawndale: September, 2018&lt;/caption&gt;
@@ -1083,19 +1092,18 @@ For example, consider the GBO[^1] unit.
 ---
 ### GBO and Lawndale Continued
 
-* Multiple POs per Column
+* Multiple POs per column
 
-* Individuals stas are duplicated
-
-  * In this format, stas are duplicated with each unit
+* Specific stats are duplicated throught the table
+  * Repetition of each variable makes it difficult to read
   
-* Intra-unit stas are easy to read
+* Intra-unit stas are still relatively easy to read
 
 * Inter-unit stats become more difficult
-  * Each unit adds dramatically to this difficult
+  * Each unit adds dramatically to this difficulty
   
 ---
-# GBO, Lawndale, and 8
+## GBO, Lawndale, and 8&lt;sup&gt;th&lt;/sup&gt; District
 &lt;div style="border: 1px solid #ddd; padding: 5px; overflow-y: scroll; height:425px; overflow-x: scroll; width:720px; "&gt;&lt;table class="table table-condensed table-hover" style="font-size: 16px; margin-left: auto; margin-right: auto;"&gt;
 &lt;caption style="font-size: initial !important;"&gt;GBO, Lawndale, and 8th District: September, 2018&lt;/caption&gt;
  &lt;thead&gt;
@@ -1653,12 +1661,17 @@ For example, consider the GBO[^1] unit.
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;&lt;/div&gt;
+---
+## GBO, Lawndale, and 8&lt;sup&gt;th&lt;/sup&gt; District
+.center[![](imgs/gonon.gif)]
+
+### Three units means there is a lot of scrolling for limited data.
 
 ---
 # New Format
 The solution looks like this:
 
-&lt;div style="border: 1px solid #ddd; padding: 5px; overflow-y: scroll; height:425px; overflow-x: scroll; width:720px; "&gt;&lt;table class="table table-condensed table-hover" style="font-size: 16px; margin-left: auto; margin-right: auto;"&gt;
+&lt;div style="border: 1px solid #ddd; padding: 5px; overflow-y: scroll; height:425px; overflow-x: scroll; width:720px; "&gt;&lt;table class="table table-condensed table-hover" style="font-size: 18px; margin-left: auto; margin-right: auto;"&gt;
 &lt;caption style="font-size: initial !important;"&gt;GBO: September, 2018&lt;/caption&gt;
  &lt;thead&gt;
   &lt;tr&gt;
@@ -1784,26 +1797,28 @@ The solution looks like this:
 
 .pull-left[
 ### Cons
-* It is difficult to read a 17-column[^2] wide table
+* It is difficult to read a 17-column&lt;sup&gt;1&lt;/sup&gt; wide table
   *   Scroll bars make it tolerable
   *   Paper requires changing layout and font size
   *   PDFs can allow for "zooming in" to focus on particular items
 ]
-
+ 
 .pull-right[
+### Pros
 * Tidy format allows for faster selction of specific variables
 * Filtering for specific observations is faster
-* Computed variables (averge, total number of POs) can be done by the software
+* Computed variables (averge, total number of POs) will be done by the software
 ]
 
+.footnote[1: The columns are: *PO_Name, Early Termination, Revoked-new offense/DOC-IDJJ, Revoked-Technical/DOC-IDJJ, Scheduled Termination, Social investigation, Supplemental social, Transferred out, Unsatisfactory termination, VOP Filed, YASI HIGH, YASI LOW, YASI MOD, YASI UNCLASSIFIED, Unit, SPO, DCPO*]
 ---
 ## New Format: Visualizations
 
-&lt;div style="border: 1px solid #ddd; padding: 5px; overflow-y: scroll; height:425px; overflow-x: scroll; width:720px; "&gt;&lt;table class="table table-condensed table-hover" style="font-size: 16px; margin-left: auto; margin-right: auto;"&gt;
+&lt;table class="table table-condensed table-hover" style="font-size: 16px; margin-left: auto; margin-right: auto;"&gt;
 &lt;caption style="font-size: initial !important;"&gt;GBO: September, 2018&lt;/caption&gt;
  &lt;thead&gt;
   &lt;tr&gt;
-   &lt;th style="text-align:left;"&gt; PO_Name &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; PO Name &lt;/th&gt;
    &lt;th style="text-align:right;"&gt; High &lt;/th&gt;
    &lt;th style="text-align:right;"&gt; Mod &lt;/th&gt;
    &lt;th style="text-align:right;"&gt; Low &lt;/th&gt;
@@ -1853,83 +1868,199 @@ The solution looks like this:
    &lt;td style="text-align:right;"&gt; 15 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
-&lt;/table&gt;&lt;/div&gt;
+&lt;/table&gt;
+
+* This table focuses only on case load and risk levels
+
+* It is sorted alphabetically
 
 ---
-## Sorted by Risk
+## GBO and Lawndale Sorted by Risk
 
-&lt;div style="border: 1px solid #ddd; padding: 5px; overflow-y: scroll; height:425px; overflow-x: scroll; width:720px; "&gt;\begin{table}
-
-\caption{\label{tab:tidy_2}GBO and Lawndale by High Risk: September, 2018}
-\centering
-\fontsize{16}{18}\selectfont
-\begin{tabular}[t]{lrrrrrrrrrrrrrl}
-\toprule
-PO\_Name &amp; Early Termination &amp; Revoked-new offense/DOC-IDJJ &amp; Revoked-Technical/DOC-IDJJ &amp; Scheduled Termination &amp; Social investigation &amp; Supplemental social &amp; Transferred out &amp; Unsatisfactory termination &amp; VOP Filed &amp; YASI HIGH &amp; YASI LOW &amp; YASI MOD &amp; YASI UNCLASSIFIED &amp; Unit\\
-\midrule
-Tesa Newton-Hart &amp; 0 &amp; 0 &amp; 0 &amp; 2 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 10 &amp; 6 &amp; 5 &amp; 1 &amp; Polce Distrct 11 - Cal. 57\\
-Laterrian Hill &amp; 0 &amp; 0 &amp; 0 &amp; 2 &amp; 0 &amp; 0 &amp; 0 &amp; 2 &amp; 1 &amp; 9 &amp; 8 &amp; 10 &amp; 0 &amp; Polce Distrct 11 - Cal. 57\\
-Michael Muhammad &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 8 &amp; 2 &amp; 6 &amp; 1 &amp; Police district 2 - Cal 55\\
-Ernest Jones &amp; 0 &amp; 0 &amp; 0 &amp; 2 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 7 &amp; 1 &amp; 6 &amp; 2 &amp; Police district 2 - Cal 55\\
-Pamela Hudson &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 6 &amp; 3 &amp; 9 &amp; 5 &amp; Polce Distrct 11 - Cal. 57\\
-\addlinespace
-Rodney Purdy-Blake &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 4 &amp; 2 &amp; 7 &amp; 2 &amp; Police district 2 - Cal 55\\
-Kenneth Ollins &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 3 &amp; 9 &amp; 11 &amp; 3 &amp; Polce Distrct 11 - Cal. 57\\
-James Smith &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 3 &amp; 9 &amp; 3 &amp; Police district 2 - Cal 55\\
-Campbell &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; Polce Distrct 11 - Cal. 57\\
-Rance Hopkins* &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 8 &amp; 0 &amp; 9 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 31 &amp; Polce Distrct 11 - Cal. 57\\
-ADMIN &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; Police district 2 - Cal 55\\
-\bottomrule
-\end{tabular}`
-\end{table}&lt;/div&gt;
+&lt;table class="table table-condensed table-hover" style="font-size: 18px; margin-left: auto; margin-right: auto;"&gt;
+&lt;caption style="font-size: initial !important;"&gt;GBO and Lawndale: September, 2018&lt;/caption&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; PO Name &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; SPO &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; High &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Mod &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Low &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Unclassified &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Total &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Tesa Newton-Hart &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Aaron Campbell &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 22 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Laterrian Hill &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Aaron Campbell &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 27 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Michael Muhammad &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Lloyd Marshall &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 17 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Ernest Jones &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Lloyd Marshall &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 7 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 16 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Pamela Hudson &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Aaron Campbell &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 23 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Rodney Purdy-Blake &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Lloyd Marshall &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 7 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 15 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Kenneth Ollins &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Aaron Campbell &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 26 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; James Smith &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Lloyd Marshall &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 16 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Campbell &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Aaron Campbell &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Rance Hopkins* &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Aaron Campbell &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 31 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 31 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; ADMIN &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Lloyd Marshall &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 
 ---
+# Calculations 
 
-Crowding all of the columns onto one page is not ideal; however, one can easily see all of the stats by unit for a given month. Filtering by case load stats becomes exceptionally easier:[^4]
----
+.center[![](imgs/colbert-calculator.gif)]
 
-&lt;div style="border: 1px solid #ddd; padding: 5px; overflow-y: scroll; height:425px; overflow-x: scroll; width:720px; "&gt;\begin{table}
+&lt;/br&gt;
+All AOIC Stats can be computed and displayed through this format
 
-\caption{\label{tab:gbo_lawndale_caseloadstats}Case Totals, Lawndale and GBO: September, 2018}
-\centering
-\fontsize{16}{18}\selectfont
-\begin{tabular}[t]{llrrrrr}
-\toprule
-PO\_Name &amp; Unit &amp; High &amp; Mod &amp; Low &amp; Unclassified &amp; Total\\
-\midrule
-Rance Hopkins* &amp; Polce Distrct 11 - Cal. 57 &amp; 0 &amp; 0 &amp; 0 &amp; 31 &amp; 31\\
-Laterrian Hill &amp; Polce Distrct 11 - Cal. 57 &amp; 9 &amp; 10 &amp; 8 &amp; 0 &amp; 27\\
-Kenneth Ollins &amp; Polce Distrct 11 - Cal. 57 &amp; 3 &amp; 11 &amp; 9 &amp; 3 &amp; 26\\
-Pamela Hudson &amp; Polce Distrct 11 - Cal. 57 &amp; 6 &amp; 9 &amp; 3 &amp; 5 &amp; 23\\
-Tesa Newton-Hart &amp; Polce Distrct 11 - Cal. 57 &amp; 10 &amp; 5 &amp; 6 &amp; 1 &amp; 22\\
-\addlinespace
-Michael Muhammad &amp; Police district 2 - Cal 55 &amp; 8 &amp; 6 &amp; 2 &amp; 1 &amp; 17\\
-Ernest Jones &amp; Police district 2 - Cal 55 &amp; 7 &amp; 6 &amp; 1 &amp; 2 &amp; 16\\
-James Smith &amp; Police district 2 - Cal 55 &amp; 1 &amp; 9 &amp; 3 &amp; 3 &amp; 16\\
-Rodney Purdy-Blake &amp; Police district 2 - Cal 55 &amp; 4 &amp; 7 &amp; 2 &amp; 2 &amp; 15\\
-Campbell &amp; Polce Distrct 11 - Cal. 57 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 1\\
-ADMIN &amp; Police district 2 - Cal 55 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0\\
-\bottomrule
-\end{tabular}`
-\end{table}&lt;/div&gt;
 
 ---
+## Caseload Numbers and Averages
 
-## R Markdown: Better Tools for Plots and Graphs
-* This work is done in `R and R Markdown`. 
-* Like Excel, these tools can create graphs and charts
+&lt;table class="table table-condensed table-hover" style="font-size: 20px; margin-left: auto; margin-right: auto;"&gt;
+&lt;caption style="font-size: initial !important;"&gt;Case Totals, Lawndale and GBO: September, 2018&lt;/caption&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; SPO &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Total Officers &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Total Cases &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Average Caseload &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Aaron Campbell &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 130 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 22 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Lloyd Marshall &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 64 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 13 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 
-&lt;div class="figure"&gt;
-&lt;img src="data_unit_pitch_files/figure-html/initial_graphs-1.png" alt="GBO and Lawndale, September 2018" width="90%" height="90%"  /&gt;
+---
+# Tidy Format and Graphs
+
+* Tidy formats are built for visualizations
+* This work is done in `R` and R Markdown 
+* Like Excel, these tools can create graphs
+
+---
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="data_unit_pitch_files/figure-html/initial_graphs-1.png" alt="GBO and Lawndale, September 2018" width="85%" height="85%" /&gt;
 &lt;p class="caption"&gt;GBO and Lawndale, September 2018&lt;/p&gt;
 &lt;/div&gt;
+---
+# R Instead of Excel: Improvements
+
+* R is free
+* Built for analysis
+* R is a scripting language
+  * Meaning it can be executed with new data instead of recreated as a spreashseet
+* Including: 
+  * Focusing on specific variables
+    * Social investigations per month
+    * High YASI/JRA scores only
+  * Data over time 
+
+.center[
+In the following example, the background code is included to show how this work is done.]
 
 ---
-
-And unlike Excel, these tools easily lends itself to additional visualizations, such as filtering results to focus on specific variables, such as Social Investigations and VOPs Filed. In the following example, the background code is included to show how this work is done.
-
-First as a chart:
-
+# Chart
 
 ```r
 cal_57 %&gt;%
@@ -1938,30 +2069,42 @@ cal_57 %&gt;%
   select(1, `Social Investigation` =`Social investigation`,
          `VOP` = `VOP Filed`) %&gt;% 
   filter(`Social Investigation` &gt; 0 | VOP &gt; 0) %&gt;%
-  kable(booktabs = TRUE, format = "latex", 
+  kable(booktabs = TRUE, format = "html", 
         caption = "GBO: September, 2018") %&gt;%
   kable_styling(bootstrap_options = c("condensed", "hover"), font_size = 16) %&gt;%
   scroll_box(width = "720px", height = "425px")
 ```
 
-&lt;div style="border: 1px solid #ddd; padding: 5px; overflow-y: scroll; height:425px; overflow-x: scroll; width:720px; "&gt;\begin{table}
-
-\caption{\label{tab:as_chart}GBO: September, 2018}
-\centering
-\fontsize{16}{18}\selectfont
-\begin{tabular}[t]{lrr}
-\toprule
-PO\_Name &amp; Social Investigation &amp; VOP\\
-\midrule
-Campbell &amp; 0 &amp; 1\\
-Laterrian Hill &amp; 0 &amp; 1\\
-Rance Hopkins* &amp; 8 &amp; 0\\
-\bottomrule
-\end{tabular}`
-\end{table}&lt;/div&gt;
-
-And as a graph:
+&lt;div style="border: 1px solid #ddd; padding: 5px; overflow-y: scroll; height:425px; overflow-x: scroll; width:720px; "&gt;&lt;table class="table table-condensed table-hover" style="font-size: 16px; margin-left: auto; margin-right: auto;"&gt;
+&lt;caption style="font-size: initial !important;"&gt;GBO: September, 2018&lt;/caption&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; PO_Name &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Social Investigation &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; VOP &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Campbell &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Laterrian Hill &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Rance Hopkins* &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;&lt;/div&gt;
 ---
+# Same Data as a Graph:
+
 
 ```r
 lloyd &lt;-  cal_55_2 %&gt;% 
@@ -1983,8 +2126,13 @@ cal_57 %&gt;%
 ```
 
 ![Socials and VOPs in GBO and Lawndale](data_unit_pitch_files/figure-html/SI_VOP-1.png)
+---
 
-In both of the previous examples, snippets of code were included in the document to showcase how `R` handles filtering. What makes this method superior to Excel is that the above code can be reused with a similar data set. For instance, plotting the same AOIC stas with Markham North:
+* In both of the previous examples, snippets of code were included in the document to showcase how `R` handles filtering. 
+
+* What makes this method superior to Excel is that the above code can be reused with a similar data set.
+
+* For instance, plotting the same AOIC stas with Markham North:
 ---
 
 ```r
@@ -2002,21 +2150,27 @@ cal_mark_n %&gt;%
   coord_flip()
 ```
 
-![Socials and VOPs in Markham North](data_unit_pitch_files/figure-html/markham_north-1.png)
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="data_unit_pitch_files/figure-html/markham_north-1.png" alt="Socials and VOPs in Markham North"  /&gt;
+&lt;p class="caption"&gt;Socials and VOPs in Markham North&lt;/p&gt;
+&lt;/div&gt;
 ---
-With Excel, each month need to be recalculated from the specific sheet. With `R`, the code can be reused with limited changes. Furthermore, if additional verbiage was required to provide context for a visualization, one would have to export into Word to write the document. With R, one writes the code and the context in the same document, which can significantly improve workflow.
+* With Excel, each month need to be recalculated from the specific sheet. 
+* With `R`, the code can be reused with limited changes. 
+* Furthermore, if additional verbiage was required to provide context for a visualization, one would have to export into Word to write the document. 
+* With R, one writes the code and the context in the same document, which can significantly improve workflow.
+
 ---
 ## Shiny
-With additional resources, specifically installing free software on a the Chief Judge's server, the department would be able to run these same reports internally as a website. This software, known as [Shiny](https://shiny.rstudio.com), would allow us to create dashboards and programmable reports that can updated quickly. Additional examples of how Shiny can be used can be found [here.](https://shiny.rstudio.com/gallery/)
+* With additional resources, specifically installing free software on a the Chief Judge's server, the department would be able to run these same reports internally as a website. 
+
+* This software, known as [Shiny](https://shiny.rstudio.com), would allow us to create dashboards and programmable reports that can updated quickly. 
+
+* Additional examples of how Shiny can be used can be found [here.](https://shiny.rstudio.com/gallery/)
+
 ---
 # GIS
 The award winning Cook County Geographic Information Systems department is willing to develop a number of dashboard and applications for the court. If a Data, Research, and Visualization unit was created, this uni would be able to build internal capacity to utilize GIS tools to go beyond the aforementioned dashboards. Even if the extent of the work was limited to using the GIS tools to turn addresses into latitude and longitude, this would allow for the unit to create regular programmable reports, such as unit level heat maps of risk levels or neighborhood "hot spots." Creating a unit to facilitate all of the department's Data needs, including the tool of GIS, can extend the viability and utility of the CFive investment.
----
-
-[^1]: On the standard AOIC spreadsheet, GBO's stats are between rows 401 and 418.
-[^2]: On the standard AOIC spreadsheet, Lawndale's rows 201-218.
-[^3]: The columns are: *PO_Name, Early Termination, Revoked-new offense/DOC-IDJJ, Revoked-Technical/DOC-IDJJ, Scheduled Termination, Social investigation, Supplemental social, Transferred out, Unsatisfactory termination, VOP Filed, YASI HIGH, YASI LOW, YASI MOD, YASI UNCLASSIFIED, Unit, SPO, DCPO*
-[^4]: Please note the spelling errors come from excel and not the code written in this document.
     </textarea>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script src="macros.js"></script>
