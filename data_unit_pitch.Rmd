@@ -373,16 +373,34 @@ All AOIC Stats can be computed and displayed through this format
 lloyd <-  cal_55_2 %>% 
     tidy_up() 
 
+cal_53_8_tidy <- cal_53_8 %>%
+  tidy_up()
+
+cal_75_tidy <- cal_75 %>%
+  tidy_up()
+
+cal_68_tidy <- cal_68 %>%
+  tidy_up()
+
+#turn into function
+
+cal_55_60_63_tidy <- cal_55_60_63 %>%
+  tidy_up()
+
 cal_57 %>%
   tidy_up() %>%
   bind_rows(lloyd) %>% 
+  bind_rows(cal_53_8_tidy) %>%
+  bind_rows(cal_75_tidy) %>%
+  bind_rows(cal_68_tidy) %>%
+  bind_rows(cal_55_60_63_tidy) %>%
   rowwise() %>%
   mutate(Total = sum(`YASI LOW`, `YASI MOD`, `YASI HIGH`, `YASI UNCLASSIFIED`)) %>%
   group_by(SPO) %>%
   summarize(`Total Officers` = n(),
             `Total Cases` = sum(Total),
              `Average Caseload` = ceiling(`Total Cases`/`Total Officers`)) %>%
-  kable(booktabs = TRUE, format = "html", caption = "Case Totals, Lawndale and GBO: September, 2018") %>%
+  kable(booktabs = TRUE, format = "html", caption = "Case Totals: September, 2018") %>%
   kable_styling(bootstrap_options = c("condensed", "hover"), font_size = 20)
 
 
