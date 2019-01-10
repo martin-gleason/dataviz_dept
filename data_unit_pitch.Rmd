@@ -167,34 +167,34 @@ The remaining columns are a combination of unit, division, and department wide d
 ```{r aoic_highlighted, include = TRUE, echo=FALSE}
 
 head(June[,1:11], n = 10) %>% 
-  mutate(X__1 = cell_spec(X__1, 
+  mutate(X__1 = cell_spec(1, 
                           popover = spec_popover(content = "Column contains multiple variables",
                                                        position = "top")),
-         X__2 = cell_spec(X__2,
+         X__2 = cell_spec(2,
                           popover = spec_popover(content = "PO Donnelly",
                                                  position = "top")),
-         X__3 = cell_spec(X__3,
+         X__3 = cell_spec(3,
                           popover = spec_popover(content = "PO Korte",
                                                  position = "top")),
-         X__4 = cell_spec(X__4,
+         X__4 = cell_spec(4,
                           popover = spec_popover(content = "PO Malave",
                                                  position = "top")),
-         X__5 = cell_spec(X__5,
+         X__5 = cell_spec(5,
                           popover = spec_popover(content = "PO O\\'Rourke",
                                                  position = "top")),
-         X__6 = cell_spec(X__6,
+         X__6 = cell_spec(6,
                           popover = spec_popover(content = "PO Pulido",
                                                  position = "top")),
-         X__7 = cell_spec(X__7,
+         X__7 = cell_spec(7,
                           popover = spec_popover(content = "SPO Bufano",
                                                  position = "top")),
-         X__8 = cell_spec(X__8,
+         X__8 = cell_spec(8,
                           popover = spec_popover(content = "Blank column to force formatting",
                                                  position = "top")),
-         X__9 = cell_spec(X__9,
+         X__9 = cell_spec(9,
                           popover = spec_popover(content = "Caseload Total should be computed number on a seperate page.",
                                                  position = "top")),
-         X__10 = cell_spec(X__10,
+         X__10 = cell_spec(10,
                           popover = spec_popover(content = "Caseload Average, per unit, is also a computed number that should be calculated and displayed elsewhere.",
                                                  position = "top")),
          
@@ -320,7 +320,7 @@ The solution looks like this:
 ---
 ## New Format: Visualizations
 
-```{r yasi_risk, include=TRUE, echo=FALSE, message = FALSE}
+```{r tidy_1, include=TRUE, echo=FALSE, message = FALSE}
 
 cal_55_2 %>%
   tidy_up() %>% 
@@ -410,11 +410,13 @@ cal_57 %>%
 # Tidy Format and Graphs
 
 * Tidy formats are built for visualizations
-* This work is done in `R` and R Markdown 
+
+* This work is done in `R` and R Markdown  
+
 * Like Excel, these tools can create graphs
 
 ---
-```{r initial_graphs, include = TRUE, echo = FALSE, dpi = 300, fig.cap= "GBO and Lawndale, September 2018", fig.align='center', fig.retina=1, out.width='85%', out.height='85%'}
+```{r gbo_lawndale, echo=FALSE, fig.cap="GBO and Lawndale, September 2018", fig.retina=1, dpi=300, include=TRUE, out.height='85%', out.width='85%', fig.align='center'}
 
 lloyd <-  cal_55_2 %>% 
     tidy_up() 
@@ -435,9 +437,8 @@ cal_57 %>%
 ---
 # R Instead of Excel: Improvements
 
-* R is free
-* Built for analysis
-* R is a scripting language
+* R is a free scripting language
+  * Built for analysis
   * Meaning it can be executed with new data instead of recreated as a spreashseet
 * Including: 
   * Focusing on specific variables
@@ -450,7 +451,7 @@ In the following example, the background code is included to show how this work 
 
 ---
 # Chart
-```{r as_chart, include = TRUE, echo = TRUE}
+```{r as_chart, include = TRUE, echo = FALSE}
 cal_57 %>%
   tidy_up() %>%
   bind_rows(lloyd) %>% 
@@ -462,9 +463,10 @@ cal_57 %>%
   kable_styling(bootstrap_options = c("condensed", "hover"), font_size = 16) %>%
   scroll_box(width = "720px", height = "425px")
 ```
+
 ---
 # Same Data as a Graph:
-
+.code-right[
 ```{r SI_VOP, include= TRUE, echo = TRUE, dpi = 300, fig.cap="Socials and VOPs in GBO and Lawndale"}
 
 lloyd <-  cal_55_2 %>% 
@@ -479,11 +481,13 @@ cal_57 %>%
           value = Totals) %>%
   ggplot(aes(x = PO_Name, y = Totals, fill = `Social_VOP`)) + 
   geom_bar(stat = "identity", position = "dodge") +
-  viridis::scale_fill_viridis(discrete = TRUE, name = "Socials and VOP") +
+  viridis::scale_fill_viridis(discrete = TRUE, 
+                              name = "Socials and VOP") +
   labs(title = "GBO and Lawndale, September 2018",
        x = "PO Name", y = "Client Totals") +
   coord_flip()
 ```
+]
 ---
 
 * In both of the previous examples, snippets of code were included in the document to showcase how `R` handles filtering. 
@@ -507,6 +511,7 @@ cal_mark_n %>%
        x = "PO Name", y = "Client Totals") +
   coord_flip()
 ```
+
 ---
 * With Excel, each month need to be recalculated from the specific sheet. 
 * With `R`, the code can be reused with limited changes. 
