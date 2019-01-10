@@ -11,3 +11,4 @@ learning_unpivotr.R
 *.tex
 *.jpg
 gis_demo.R
+department_GIS.Rmd

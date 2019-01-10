@@ -237,7 +237,9 @@ cal_55_2 %>%
 ### GBO Continued
 .pull-left[
 * Individual figures are clear
+
 * Columns are clearly PO Stats
+
 * Rows indicate tracked observations
 ]
 
@@ -451,7 +453,7 @@ In the following example, the background code is included to show how this work 
 
 ---
 # Chart
-```{r as_chart, include = TRUE, echo = FALSE}
+```{r as_chart, include = TRUE, echo = TRUE}
 cal_57 %>%
   tidy_up() %>%
   bind_rows(lloyd) %>% 

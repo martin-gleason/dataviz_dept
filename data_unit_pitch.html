@@ -809,7 +809,9 @@ For example, consider the GBO unit.
 ### GBO Continued
 .pull-left[
 * Individual figures are clear
+
 * Columns are clearly PO Stats
+
 * Rows indicate tracked observations
 ]
 
@@ -2196,6 +2198,20 @@ In the following example, the background code is included to show how this work 
 
 ---
 # Chart
+
+```r
+cal_57 %&gt;%
+  tidy_up() %&gt;%
+  bind_rows(lloyd) %&gt;% 
+  select(1, `Social Investigation` =`Social investigation`,
+         `VOP` = `VOP Filed`) %&gt;% 
+  filter(`Social Investigation` &gt; 0 | VOP &gt; 0) %&gt;%
+  kable(booktabs = TRUE, format = "html", 
+        caption = "GBO: September, 2018") %&gt;%
+  kable_styling(bootstrap_options = c("condensed", "hover"), font_size = 16) %&gt;%
+  scroll_box(width = "720px", height = "425px")
+```
+
 &lt;div style="border: 1px solid #ddd; padding: 5px; overflow-y: scroll; height:425px; overflow-x: scroll; width:720px; "&gt;&lt;table class="table table-condensed table-hover" style="font-size: 16px; margin-left: auto; margin-right: auto;"&gt;
 &lt;caption style="font-size: initial !important;"&gt;GBO: September, 2018&lt;/caption&gt;
  &lt;thead&gt;
