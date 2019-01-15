@@ -107,3 +107,26 @@ div.my-header {
 
 .v-middle{
 	vertical-align: middle;}
+	
+	.right-code {
+  width: 38%;
+  height: 92%;
+  float: right;
+}
+.left-code {
+  width: 38%;
+  height: 92%;
+  float: left;
+}
+
+.left-plot {
+  width: 60%;
+  float: left;
+  padding-left: 1%;
+}
+
+.right-plot{
+  width: 60%;
+  float: right;
+  padding-left: 2%;
+}

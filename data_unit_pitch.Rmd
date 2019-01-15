@@ -25,9 +25,6 @@ $(document).ready(function(){
 library(kableExtra)
 source("cleaning_aoic.R")
 
-
-
-
 ```
  
 # Executive Summary
@@ -47,18 +44,27 @@ source("cleaning_aoic.R")
 ---
 # Unit Mission Statement
 
-*It is the policy of the Cook County Juvenile Probation and Court Services Department to maintain the highest level of data integrity within the department and with community partners and to use this data to develop polices, procedures, and programs that enhance the possibility of long term success for all young people under the care of the court.*
+.left-plot[![:scale 85%](imgs/d_v_unit.jpg)]
+.right-code[
+It is the policy of the Cook County Juvenile Probation and Court Services Department to maintain the highest level of data integrity within the department and with community partners and to use this data to develop polices, procedures, and programs that enhance the possibility of long term success for all young people under the care of the court.]
+
+
 
 ---
 # Specific Recommendations
 
 * At a minimum, a system administrator is needed to ensure *Supervisor's* data integrity.
 
-* More resources would allow for more insights including
+* More resources would allow for more insights including:
 
-  * Redesigning all forms and reports
+  * Address Equity across the department
+    *  Caseload, unit, and division equity
+    
+* Develop policies for addressing in-community need
   
-  * [Developing GIS solutions](https://www.cookcountyil.gov/agency/geographic-information-systems-gis-0)
+* Garner support from all stake holders by telling our own story
+  
+* [Developing GIS solutions](https://www.cookcountyil.gov/agency/geographic-information-systems-gis-0)
   
 ---
 # Unit Structure
@@ -80,16 +86,28 @@ source("cleaning_aoic.R")
 
 * Assist the department in evaluating program effectiveness
 
-* Maintaining and leverage all of Department's data sharing agreements
+* Maintaining and leveraging the Department's data sharing agreements
 
-* Expand the development of CFive's reporting and data visiulization capabilities
+* Expand the development of *CFive's* reporting and data visiulization capabilities
 
 * It is not a revolutionary change, simple an evolution of the departments capabilities and opportunities
 
-* A Data, Research, and Visualization Unit solves the *mission critical* need of evidenced based practices
+* A Data, Research, and Visualization Unit solves the *mission critical* need of evidenced based practices with established financial restrictions
 
 ---
-# AOIC Stats as an Example
+# Reformating Reports
+
+* *CFive* will change how we collect data (forms)
+
+* The department can update our reports now
+
+* Redesign reports for
+  * Readability
+  * Portability
+  * Reproducibility
+
+---
+# AOIC Stats 
 
 Consider the current AOIC report, presented in the following format:
 
