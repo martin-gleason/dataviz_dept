@@ -17,7 +17,7 @@ output:
 </script>
 <script>
 $(document).ready(function(){
-  $('[data-toggle="popover"]').popover(); 
+   $('[data-toggle="popover"]').popover(); 
 });
 
 </script>
@@ -25,13 +25,16 @@ $(document).ready(function(){
 library(kableExtra)
 source("cleaning_aoic.R")
 
+
+
+
 ```
  
 # Executive Summary
 
 * The department should invest staffing resources into a Data, Research, and Visualization.
 
-* This unit will collect, clean, analyze, and present data to ensure the department is data-drive, thereby maximizing the investment in *CFive Supervisor.*
+* This unit will collect, clean, analyze, and present data to ensure the department is data-drive, thereby maximizing the investment inthou *CFive Supervisor.*
 
 * This unit would use already available tools, including [Office 365](https://products.office.com/en-us/business/office) and [R](https://www.r-project.org), to maximize the return on *CFive Supervisor.*
 
@@ -226,6 +229,7 @@ head(June[,1:11], n = 10) %>%
 For example, consider the GBO unit.
 
 ```{r gbo_demo, include=TRUE, echo = FALSE}
+
 cal_55_2 %>% 
   kable(booktabs = TRUE, format = "html", caption = "September, 2018") %>%
   kable_styling(bootstrap_options = c("condensed", "hover"), font_size = 16) %>%
@@ -252,6 +256,7 @@ cal_55_2 %>%
 ## GBO and Lawndale
 
 ```{r GBO_and_Lawndale, include=TRUE, echo = FALSE}
+
 cal_55_2 %>% 
   bind_rows(cal_57) %>%
   kable(booktabs = TRUE, format = "html", caption = "GBO and Lawndale: September, 2018") %>%
@@ -275,10 +280,14 @@ cal_55_2 %>%
 ---
 ## GBO, Lawndale, and 8<sup>th</sup> District
 ```{r GBO_Lawndale_and_53, include=TRUE, echo = FALSE}
-cal_55_2 %>% 
+
+gbo_lawndale_eight <- cal_55_2 %>% 
   bind_rows(cal_57) %>%
-  bind_rows(cal_53) %>%
-  kable(booktabs = TRUE, format = "html", caption = "GBO, Lawndale, and 8th District: September, 2018") %>%
+  bind_rows(cal_53)  
+
+gbo_lawndale_eight %>%
+  kable(booktabs = TRUE, format = "html",
+        caption = "GBO, Lawndale, and 8th District: September, 2018") %>%
   kable_styling(bootstrap_options = c("condensed", "hover"), font_size = 16) %>%
   scroll_box(width = "720px", height = "425px")
 ```

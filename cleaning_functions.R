@@ -52,7 +52,7 @@ tidy_up <- function(df, ...){
     pull_unit_info()
   
   tidy_unit <- df %>% 
-  select_if(~!all(is.na(.))) %>% # essary line, investigat select if. This has to do with negation. 
+  select_if(~!all(is.na(.))) %>% # necessary line, investigate select if. This has to do with negation. 
   po_name_col() %>%
   gather(2:ncol(.), key = PO_Name, 
          value = Totals) %>% 
