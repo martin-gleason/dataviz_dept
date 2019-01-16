@@ -63,14 +63,14 @@ It is the policy of the Cook County Juvenile Probation and Court Services Depart
 ---
 # Unit Structure
 
-.pull-left[![:scale 85%](imgs/rick_right.jpg)]
+.pull-right[![:scale 85%](imgs/Agile-team.jpg)]
 
-.pull-right[
+.pull-left[
 * Two support professionals 
 
 * The CFive System Administrator
 
-* Program managing officers
+* Program manager officers
 ]
 
 ---
@@ -97,8 +97,13 @@ It is the policy of the Cook County Juvenile Probation and Court Services Depart
 
 * Redesign reports for
   * Readability
+      * *Easy to read and digest*
+    
   * Portability
+      * *Shareable regardless of format*
+    
   * Reproducibility
+      * *Reports can be rerun with new data for new insights*
 
 ---
 # AOIC Stats 
@@ -342,12 +347,11 @@ The remaining columns are a combination of unit, division, and department wide d
     * Each observational unit forms a table
     * Moving from Excel to R 
 
-.center[![:scale 60%](imgs/tidy_data1.png)]
+.center[![:scale 55%](imgs/tidy_data1.png)]
 
 ---
 # AOIC Revisited
 
-*(Popups for added detail, not currently working)*
  
 &lt;div style="border: 1px solid #ddd; padding: 5px; overflow-y: scroll; height:425px; overflow-x: scroll; width:720px; "&gt;&lt;table class="table table-condensed table-hover" style="font-size: 16px; margin-left: auto; margin-right: auto;"&gt;
  &lt;thead&gt;
@@ -836,11 +840,11 @@ For example, consider the GBO unit.
 * Rows indicate tracked observations
 ]
 
-.pull-right[![:scale 90%](imgs/sofarsogood.gif)]
+.pull-right[![](imgs/sofasogood_ron.gif)]
 &lt;/br&gt;
 &lt;/br&gt;
 
-## One additional unit makes the data twice as messy.
+## Adding an additional unit makes the data twice as messy.
 ---
 ## GBO and Lawndale
 
@@ -1230,7 +1234,8 @@ For example, consider the GBO unit.
 * Specific stats are duplicated throught the table
   * Repetition of each variable makes it difficult to read
   
-* Intra-unit stas are still relatively easy to read
+* Intra-unit stats can be read
+  * It is easy to get lost in the columns
 
 * Inter-unit stats become more difficult
   * Each unit adds dramatically to this difficulty
@@ -1946,6 +1951,7 @@ The solution looks like this:
 .footnote[1: The columns are: *PO_Name, Early Termination, Revoked-new offense/DOC-IDJJ, Revoked-Technical/DOC-IDJJ, Scheduled Termination, Social investigation, Supplemental social, Transferred out, Unsatisfactory termination, VOP Filed, YASI HIGH, YASI LOW, YASI MOD, YASI UNCLASSIFIED, Unit, SPO, DCPO*]
 ---
 ## New Format: Visualizations
+* *Tidy format is built to be analyzed, not presented as 17 column reports*
 
 &lt;table class="table table-condensed table-hover" style="font-size: 16px; margin-left: auto; margin-right: auto;"&gt;
 &lt;caption style="font-size: initial !important;"&gt;GBO: September, 2018&lt;/caption&gt;
@@ -2004,6 +2010,7 @@ The solution looks like this:
 &lt;/table&gt;
 
 * This table focuses only on case load and risk levels
+  * It is the same data as the 17 column table, with an additional 5 lines of code
 
 * It is sorted alphabetically
 
@@ -2188,14 +2195,20 @@ All AOIC Stats can be computed and displayed through this format
 &lt;/tbody&gt;
 &lt;/table&gt;
 
+* Unlike the Excel format, this document calculates these totals and averages based on input
+
+* This representation is concise and easy to read
+
 ---
 # Tidy Format and Graphs
 
-* Tidy formats are built for visualizations
+* The tidy format is built for visualizations
 
 * This work is done in `R` and R Markdown  
 
 * Like Excel, these tools can create graphs
+
+* Unlike Excel, these graphs are designed with reproducibility in mind
 
 ---
 &lt;div class="figure" style="text-align: center"&gt;
