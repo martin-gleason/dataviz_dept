@@ -13,14 +13,6 @@ output:
       highlightLines: true
       countIncrementalSlides: false
 ---
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
-</script>
-<script>
-$(document).ready(function(){
-   $('[data-toggle="popover"]').popover(); 
-});
-
-</script>
 ```{r setup, include= FALSE, echo = FALSE, warning=FALSE}
 library(kableExtra)
 source("cleaning_aoic.R")
@@ -28,125 +20,100 @@ source("cleaning_aoic.R")
 ```
  
 # Executive Summary
-
-* The department should invest staffing resources into a Data, Research, and Visualization.
-
-* This unit will collect, clean, analyze, and present data to ensure the department is data-drive, thereby maximizing the investment in *CFive Supervisor.*
-
-* This unit would use already available tools, including [Office 365](https://products.office.com/en-us/business/office) and [R](https://www.r-project.org), to maximize the return on *CFive Supervisor.*
-
-* This unit would collapse existing resources to:
-
-  * Prepare for [CFive's Supervisor](https://www.cfive.com/products/supervisor/)'s data collection and dashboards features
   
-  * Work with the [Cook County Geographic Information Systems Department](https://www.cookcountyil.gov/agency/geographic-information-systems-gis-0) to create new, data driven tools. 
+* The department should invest staffing resources into a Data, Research, and Visualization unit.
+
+* This unit would do the following:
+  * Collect, clean, analyze, and present department data
+  * Collaborate with stakeholders across the Juvenie Justice System
+  * Provide information and insight to the entire department
+  * Prepare the deparment to transition to [CFive's Supervisor](https://www.cfive.com/products/supervisor/)'s data collection and dashboards features
+    * Work with the [Cook County Geographic Information Systems Department](https://www.cookcountyil.gov/agency/geographic-information-systems-gis-0) to create new, data driven tools. 
+    
+---
+## Data, Research, and Visualization Unit's Benefits
+
+* Solves the *mission critical* need of evidenced-based practices within established financial restrictions
+
+* Maximize the investment in *CFive Supervisor.*
+
+* Efficiently gather, store, and transform  data into information and insight
+
+* Allow the Department to tell its own data-driven stories to stakeholders
   
+* Idenitfy and address concerns of equity across the department
+  *  Racial, caseload, unit, division and section
 ---
 # Unit Mission Statement
 
 .left-plot[![:scale 85%](imgs/d_v_unit.jpg)]
 .right-code[
-It is the policy of the Cook County Juvenile Probation and Court Services Department to maintain the highest level of data integrity within the department and with community partners and to use this data to develop polices, procedures, and programs that enhance the possibility of long term success for all young people under the care of the court.]
-
-
+It is the policy of the Cook County Juvenile Probation and Court Services Department to maintain the highest level of data integrity within the department and with community partners in order to use this data to develop polices, procedures, and programs that enhance the possibility of long term success for all young people under the care of the court.]
 
 ---
-# Specific Recommendations
-
-* At a minimum, a system administrator is needed to ensure *Supervisor's* data integrity.
-
-* More resources would allow for more insights including:
-
-  * Address Equity across the department
-    *  Caseload, unit, and division equity
-    
-* Develop policies for addressing in-community need
-  
-* Garner support from all stake holders by telling our own story
-  
-* [Developing GIS solutions](https://www.cookcountyil.gov/agency/geographic-information-systems-gis-0)
-  
----
-# Unit Structure
-
-.pull-right[![:scale 85%](imgs/Agile-team.jpg)]
-
 .pull-left[
-* Two support professionals 
-
-* The CFive System Administrator
-
-* Program manager officers
+### Unit Makeup
+* Unit Structure
+  * Two support professionals 
+  * The CFive System Administrator
+  * Program manager officers
+]
+.pull-right[
+### Unit Responsibilities
+* Collect, clean, and store data
+* Reformat forms and reports to reflect department needs
+* Assist the department in evaluating program effectiveness
+* Maintaining and leveraging the Department's data sharing agreements
+* Expand the development of *CFive's* reporting and data visualization capabilities
 ]
 
----
-# Unit Responsibilities
-
-* Collect, clean, and store data
-
-* Assist the department in evaluating program effectiveness
-
-* Maintaining and leveraging the Department's data sharing agreements
-
-* Expand the development of *CFive's* reporting and data visualization capabilities
-
-* It is not a revolutionary change, simple an evolution of the departments capabilities and opportunities
-
-* A Data, Research, and Visualization Unit solves the *mission critical* need of evidenced based practices with established financial restrictions
+<br  />
+.center[It is not a revolutionary change, it is simply an evolution of the departments capabilities and opportunities]
 
 ---
-# Reformatting Reports
+# RChangin in Practices
 
 * *CFive* will change how we collect data (forms)
 
-* The department can update our reports now
-
-* Redesign reports for
+* The department can redesign reports for
   * Readability
       * *Easy to read and digest*
     
   * Portability
-      * *Share-able regardless of format*
+      * *Shareable regardless of format*
     
   * Reproducible
       * *Reports can be rerun with new data for new insights*
 
 ---
-# AOIC Stats 
+# Example: AOIC Stats 
 
 Consider the current AOIC report, presented in the following format:
 
 ```{r first_8, include = TRUE, echo = FALSE}
 
-first_eight <- head(June[ , 1:8])
+first_eight <- head(June[ , 1:19])
 
 first_eight %>% 
   kable( format = "html") %>%
-  kable_styling(bootstrap_options = c("bordered", "responsive", "condensed "))
+  kable_styling(bootstrap_options = c("condensed", "hover", "responsive", "condensed "), 
+                font_size = 14) %>%
+  scroll_box(width = "720px", height = "425px")
 
 ``` 
-
-The first of the eight columns contain the DCPO, SPO, and police district. 
-
-The remaining seven columns contain the PO's case load data.
 ---
-# Columns Nine Through Eleven: 
-## Aggregates
+## Example: AOIC Stats 
+* The first of the eight columns contain the DCPO, SPO, and police district. 
 
-```{r 9_11, include = TRUE, echo = FALSE}
-kable(head(June[ , 9:11]), caption = "Caseload Aggregate Data") %>%
-  kable_styling("striped")
-```
+* The next seven columns contain the PO's caseload data.
 
-Calculated values, computed rowise, tally caseload totals and averages.
----
-# VOP and Caseload Averages
-```{r 12-19, include = TRUE, echo = FALSE}
-kable(head(June[ , 13:19])) %>%
-  kable_styling(bootstrap_options = c("striped", "condensed", "responsive"), font_size = 16)  
-```
-
-The remaining columns are a combination of unit, division, and department wide data used for baseline comparison.
+* The remaining columns are a combination of: 
+  * Unit 
+  * Division
+  * Department
+  * Calculated values, such as: 
+    * Caseload totals
+    * Averages across the department
 
 ---
 # Issues with this format
@@ -163,167 +130,18 @@ The remaining columns are a combination of unit, division, and department wide d
 * Excel does not become a website or a slide presentation easily
   
 ---
-# CFive's Eventual Solution
-
-* [CFive's Supervisor](https://www.CFive.com/products/supervisor/) will be able to solve most of these data collection issues. 
-
-* As of the current understanding of the Statement of Work, *Supervisor* will pull these necessary numbers from the system as a standard report.
-
-* Unfortunately, the reporting features are not completed nor are they available for preview. 
-
----
 # The Solution: Tidy Data
+.center[![:scale 45%](imgs/tidy_data1.png)]
 
-* Implementing [tidy data](http://vita.had.co.nz/papers/tidy-data.html) is the first step in the transformation of data-driven office. 
+* Implementing [tidy data](http://vita.had.co.nz/papers/tidy-data.html) is a critical step in creating a data-driven department
 
 * Tidy data is short hand for:
-
     * Columns are single variable
     * Rows are single observation
     * Each observational unit forms a table
-    * Moving from Excel to R 
-
-.center[![:scale 55%](imgs/tidy_data1.png)]
 
 ---
 # AOIC Revisited
-
- 
-```{r aoic_highlighted, include = TRUE, echo=FALSE}
-
-head(June[,1:11], n = 10) %>% 
-  mutate(X__1 = cell_spec(1, 
-                          popover = spec_popover(content = "Column contains multiple variables",
-                                                       position = "top")),
-         X__2 = cell_spec(2,
-                          popover = spec_popover(content = "PO Donnelly",
-                                                 position = "top")),
-         X__3 = cell_spec(3,
-                          popover = spec_popover(content = "PO Korte",
-                                                 position = "top")),
-         X__4 = cell_spec(4,
-                          popover = spec_popover(content = "PO Malave",
-                                                 position = "top")),
-         X__5 = cell_spec(5,
-                          popover = spec_popover(content = "PO O\\'Rourke",
-                                                 position = "top")),
-         X__6 = cell_spec(6,
-                          popover = spec_popover(content = "PO Pulido",
-                                                 position = "top")),
-         X__7 = cell_spec(7,
-                          popover = spec_popover(content = "SPO Bufano",
-                                                 position = "top")),
-         X__8 = cell_spec(8,
-                          popover = spec_popover(content = "Blank column to force formatting",
-                                                 position = "top")),
-         X__9 = cell_spec(9,
-                          popover = spec_popover(content = "Caseload Total should be computed number on a separate page.",
-                                                 position = "top")),
-         X__10 = cell_spec(10,
-                          popover = spec_popover(content = "Caseload Average, per unit, is also a computed number that should be calculated and displayed elsewhere.",
-                                                 position = "top")),
-         
-         ) %>%
-  kable(escape = FALSE) %>%
-  kable_styling(bootstrap_options = c("condensed", "hover"), font_size = 16) %>%
-  scroll_box(width = "720px", height = "425px")
-
-
-```
-
----
-## AOIC Stats: Tidy Review
-
-.center[.top[![:scale 50%](imgs/homerStudy.gif)]]
-
-* POs are not variables
-  * They track observations
-  * Therefore, POs should be **rows**
-  
-* Columns contain have multiple units
-
-* Calculated figures, while not necessarily messy, are neither variables nor observations
-
-
----
-## GBO As a Demo
-
-For example, consider the GBO unit.
-
-```{r gbo_demo, include=TRUE, echo = FALSE}
-
-cal_55_2 %>% 
-  kable(booktabs = TRUE, format = "html", caption = "September, 2018") %>%
-  kable_styling(bootstrap_options = c("condensed", "hover"), font_size = 16) %>%
-  scroll_box(width = "720px", height = "425px")
-
-```
-
----
-### GBO Continued
-.pull-left[
-* Individual figures are clear
-
-* Columns are clearly PO Stats
-
-* Rows indicate tracked observations
-]
-
-.pull-right[![](imgs/sofasogood_ron.gif)]
-</br>
-</br>
-
-## Adding an additional unit makes the data twice as messy.
----
-## GBO and Lawndale
-
-```{r GBO_and_Lawndale, include=TRUE, echo = FALSE}
-
-cal_55_2 %>% 
-  bind_rows(cal_57) %>%
-  kable(booktabs = TRUE, format = "html", caption = "GBO and Lawndale: September, 2018") %>%
-  kable_styling(bootstrap_options = c("condensed", "hover"), font_size = 16) %>%
-  scroll_box(width = "720px", height = "425px")
-```
-
----
-### GBO and Lawndale Continued
-
-* Multiple POs per column
-
-* Specific stats are duplicated throughout the table
-  * Repetition of each variable makes it difficult to read
-  
-* Intra-unit stats can be read
-  * It is easy to get lost in the columns
-
-* Inter-unit stats become more difficult
-  * Each unit adds dramatically to this difficulty
-  
----
-## GBO, Lawndale, and 8<sup>th</sup> District
-```{r GBO_Lawndale_and_53, include=TRUE, echo = FALSE}
-
-gbo_lawndale_eight <- cal_55_2 %>% 
-  bind_rows(cal_57) %>%
-  bind_rows(cal_53)  
-
-gbo_lawndale_eight %>%
-  kable(booktabs = TRUE, format = "html",
-        caption = "GBO, Lawndale, and 8th District: September, 2018") %>%
-  kable_styling(bootstrap_options = c("condensed", "hover"), font_size = 16) %>%
-  scroll_box(width = "720px", height = "425px")
-```
----
-## GBO, Lawndale, and 8<sup>th</sup> District
-.center[![](imgs/gonon.gif)]
-
-### Three units means there is a lot of scrolling for limited data.
-
----
-# AOIC Stats: The Tidy Way
-The solution looks like this:
-
 ```{r tidy, include=TRUE, echo = FALSE, message = FALSE}
   cal_55_2 %>% 
     tidy_up() %>% 
@@ -338,44 +156,24 @@ The solution looks like this:
 .pull-left[
 ### Cons
 * It is difficult to read a 17-column<sup>1</sup> wide table
-  *   Scroll bars make it tolerable
-  *   Paper requires changing layout and font size
-  *   PDFs can allow for "zooming in" to focus on particular items
+  *   Scroll bars on web versions make it tolerable
+  *   Print versions requires changing layout or font size
+  *   PDFs can allow for "zooming in" on particular rows and columns 
 ]
- 
 .pull-right[
 ### Pros
-* Tidy format allows for faster selection of specific variables
-* Filtering for specific observations is faster
-* Computed variables (average, total number of POs) will be done by the software
+* Allows for computed variables (average, total number of POs) by the software
+* Tidy format allows for faster selection and filtering of specific items
+* Tidy data allows for faster, and easier, combinations of data sets
+  * Combining OCJ and CTA Data
 ]
-
+<br />
 .footnote[1: The columns are: *`r names(cal_55_2 %>% tidy_up()) %>% as.vector()`*]
 ---
 ## New Format: Visualizations
-* *Tidy format is built to be analyzed, not presented as 17 column reports*
+* *Tidy format is built to be analyzed, not presented as 17 column report*
 
 ```{r tidy_1, include=TRUE, echo=FALSE, message = FALSE}
-
-cal_55_2 %>%
-  tidy_up() %>% 
-  select(`PO Name` = 1, High = `YASI HIGH`, Mod = `YASI MOD`, 
-         Low = `YASI LOW`, Unclassified = `YASI UNCLASSIFIED`) %>%
-  rowwise() %>%
-  mutate(Total = sum(Low, Mod, High, Unclassified)) %>%
-  kable(booktabs = TRUE, format = "html", caption = "GBO: September, 2018") %>%
-  kable_styling(bootstrap_options = c("condensed", "hover"), font_size = 16)
-```
-
-* This table focuses only on case load and risk levels
-  * It is the same data as the 17 column table, with an additional 5 lines of code
-
-* It is sorted alphabetically
-
----
-## GBO and Lawndale Sorted by Risk
-
-```{r tidy_2, include=TRUE, echo = FALSE, message = FALSE}
 
 lloyd <-  cal_55_2 %>% 
     tidy_up() 
@@ -393,14 +191,16 @@ cal_57 %>%
   kable_styling(bootstrap_options = c("condensed", "hover"), font_size = 18) 
 ```
 
+* This table focuses only on case load and risk levels
+  * It is the same data as the 17 column table
+
 ---
 # Calculations 
 
 .center[![](imgs/colbert-calculator.gif)]
 
 </br>
-All AOIC Stats can be computed and displayed through this format
-
+Computed AOIC Stats (averages, medians, etc) can be computed and displayed through this format
 
 ---
 ## Caseload Numbers and Averages
@@ -442,13 +242,13 @@ cal_57 %>%
 
 ```
 
-* Unlike the Excel format, this document calculates these totals and averages based on input
+* Unlike the Excel format, this document seperates data and computation
 
-* This representation is concise and easy to read
+* Reusable code is more reliable, readable, and portable than an frequently updated spreadsheet
 
 ---
 # Tidy Format and Graphs
-
+.left-code[
 * The tidy format is built for visualizations
 
 * This work is done in `R` and R Markdown  
@@ -456,61 +256,9 @@ cal_57 %>%
 * Like Excel, these tools can create graphs
 
 * Unlike Excel, these graphs are designed with reproducibility in mind
-
----
-```{r gbo_lawndale, echo=FALSE, fig.cap="GBO and Lawndale, September 2018", fig.retina=1, dpi=300, include=TRUE, out.height='85%', out.width='85%', fig.align='center'}
- 
-lloyd <-  cal_55_2 %>% 
-    tidy_up() 
-
-cal_57 %>%
-  tidy_up() %>%
-  bind_rows(lloyd) %>% 
-  select(1:14) %>%
-  gather(2:14, key ="AOIC Stats", value = Totals) %>%
-  ggplot(aes(x = PO_Name, y = Totals, fill = `AOIC Stats`)) + 
-  geom_bar(stat = "identity", position = "dodge") +
-  viridis::scale_fill_viridis(discrete = TRUE) +
-  labs(title = "All AOIC Stats: GBO and Lawndale, September 2018", 
-       x = "PO Name", y = "Client Totals") +
-  coord_flip()
-
-```
----
-# R Instead of Excel: Improvements
-
-* R is a free scripting language
-  * Built for analysis
-  * Meaning it can be executed with new data instead of recreated as a spreadsheet
-* Including: 
-  * Focusing on specific variables
-    * Social investigations per month
-    * High YASI/JRA scores only
-  * Data over time 
-
-.center[
-In the following example, the background code is included to show how this work is done.]
-
----
-# GBO: Socials and VOPs
-```{r as_chart, include = TRUE, echo = TRUE}
-cal_57 %>%
-  tidy_up() %>%
-  bind_rows(lloyd) %>% 
-  select(1, `Social Investigation` =`Social investigation`,
-         `VOP` = `VOP Filed`) %>% 
-  filter(`Social Investigation` > 0 | VOP > 0) %>%
-  kable(booktabs = TRUE, format = "html", 
-        caption = "GBO: September, 2018") %>%
-  kable_styling(bootstrap_options = c("condensed", "hover"), 
-                font_size = 16) %>%
-  scroll_box(width = "720px", height = "425px")
-```
-
----
-# Same Data as a Graph:
-.left-code[
-```{r SI_VOP, include= TRUE, echo = TRUE, eval = FALSE, dpi = 300, fig.cap="Socials and VOPs in GBO and Lawndale"}
+]
+.right-plot[
+```{r SI_VOP, include= TRUE, echo = TRUE, eval = TRUE, dpi = 300, fig.cap="Socials and VOPs in GBO and Lawndale"}
 
 lloyd <-  cal_55_2 %>% 
     tidy_up() 
@@ -531,43 +279,18 @@ cal_57 %>%
   coord_flip()
 ```
 ]
-.right-plot[
-```{r SI_VOP_out, ref.label="SI_VOP", echo=FALSE, eval=TRUE}
-```
-]
 ---
 # Code, Tables, Graphs
-* In both of the previous examples, snippets of code were included in the document to showcase how `R` handles filtering. 
 
 * What makes this method superior to Excel is that the above code can be reused with a similar data set.
 
-* For instance, plotting the same AOIC stas with Markham North:
----
-```{r, markham_north, include = TRUE, echo = FALSE, fig.cap = "Socials and VOPs in Markham North", fig.align='center', fig.pos = "h", out.height='85%', out.width='85%', dpi = 600}
-
-cal_mark_n %>%
-  tidy_up() %>% 
-  select(1, `Social Investigation` =`Social investigation`, 
-         `VOP` = `VOP Filed`) %>%
-  gather( c(`Social Investigation`, `VOP`), key = Social_VOP, 
-          value = Totals) %>%
-  ggplot(aes(x = PO_Name, y = Totals, fill = `Social_VOP`)) + 
-  geom_bar(stat = "identity", position = "dodge") +
-  viridis::scale_fill_viridis(discrete = TRUE, name = "Socials and VOP") +
-  labs(title = "Markham North, September 2018",
-       x = "PO Name", y = "Client Totals") +
-  coord_flip()
-```
-
----
-## Code, Tables, Graphs: Continued
 * With Excel, each month need to be recalculated from the specific sheet
 
 * With `R`, the code can be reused with limited changes
   *  Additional data or transformations can be included easily
 
-* `R` allows for code and report to be included in the same document
-  * No need to cut and paste, or push to PDF or Word
+* `R` puts code, calculated values, and visiulzaitons in the same document
+  * No need to cut and paste tables and charts
 
 ---
 # Shiny
@@ -582,19 +305,18 @@ cal_mark_n %>%
 
 ---
 # GIS
-*The Cook County Geographic Information Systems department is willing to work with the Department
+* The Cook County Geographic Information Systems department is willing to work with the Department
 
-*A Data, Research, and Visualization unit would be able to build internal capacity to utilize GIS tools to go beyond dashboards
+* A Data, Research, and Visualization unit would be able to build internal capacity to utilize GIS tools to go beyond dashboards
 
-*Even minimal partnerships would for the creation of regular programmable reports:
+* Even minimal partnerships would for the creation of regular programmable reports:
   * Unit level heat maps of risk levels
   * Neighborhood "hot spots."
   * Risk and success rates by commissioner district
   
-  
 ---
-# Data and Visualization Unit
-* A unit with a dedication mission will be able to
+# Data, Research, and Visualization Unit
+* A unit with this mission will be able to
   * Create, modify, and generate standard reports for the department
   * Improve data integrity across the department
   * Provide insight into new areas for programming and policy
