@@ -21,7 +21,7 @@
   * Collect, clean, analyze, and present department data
   * Collaborate with stakeholders across the Juvenie Justice System
   * Provide information and insight to the entire department
-  * Prepare the deparment to transition to [CFive's Supervisor](https://www.cfive.com/products/supervisor/)'s data collection and dashboards features
+  * Prepare the deparment to transition to [CFive's Supervisor](https://www.cfive.com/products/supervisor/)'s data collection, reporting, and dashboards features
     * Work with the [Cook County Geographic Information Systems Department](https://www.cookcountyil.gov/agency/geographic-information-systems-gis-0) to create new, data driven tools. 
     
 ---
@@ -31,18 +31,18 @@
 
 * Maximize the investment in *CFive Supervisor.*
 
-* Efficiently gather, store, and transform  data into information and insight
+* Efficiently transforms data into information and insight
 
-* Allow the Department to tell its own data-driven stories to stakeholders
+* Allow the Department to tell its own data-driven stories to Juvenile Justice stakeholders
   
 * Idenitfy and address concerns of equity across the department
-  *  Racial, caseload, unit, division and section
+  *  Racial, class, caseload, unit, division, and section
 ---
 # Unit Mission Statement
 
 .left-plot[![:scale 85%](imgs/d_v_unit.jpg)]
 .right-code[
-It is the policy of the Cook County Juvenile Probation and Court Services Department to maintain the highest level of data integrity within the department and with community partners in order to use this data to develop polices, procedures, and programs that enhance the possibility of long term success for all young people under the care of the court.]
+It is the policy of the Cook County Juvenile Probation and Court Services Department to maintain the highest level of data integrity within the department, and with community partners, in order to develop polices, procedures, and programs that enhance the probablity of long term success for all young people under the care of the court.]
 
 ---
 .pull-left[
@@ -56,8 +56,8 @@ It is the policy of the Cook County Juvenile Probation and Court Services Depart
 ### Unit Responsibilities
 * Collect, clean, and store data
 * Reformat forms and reports to reflect department needs
-* Assist the department in evaluating program effectiveness
-* Maintaining and leveraging the Department's data sharing agreements
+* Assist the department and community partners in evaluating program effectiveness
+* Maintain and leverage the Department's data sharing agreements
 * Expand the development of *CFive's* reporting and data visualization capabilities
 ]
 
@@ -65,9 +65,10 @@ It is the policy of the Cook County Juvenile Probation and Court Services Depart
 .center[It is not a revolutionary change, it is simply an evolution of the departments capabilities and opportunities]
 
 ---
-# RChangin in Practices
+# Evolving Practices
 
-* *CFive* will change how we collect data (forms)
+* *CFive* will change how the Department collects data and reports on data.
+  * Collecting will be standarized, but reporting and dashboards represent an opportunity for growth
 
 * The department can redesign reports for
   * Readability
@@ -254,16 +255,17 @@ Consider the current AOIC report, presented in the following format:
 ---
 # Issues with this format
 
-* Storing and presenting AOIC data in this fashion limits additional investigation of the data. 
+* Storing and presenting AOIC data in this fashion limits additional investigation of this data 
 
-  * Multiple spreadsheets must be created and merged in order to do month-month comparisons. 
+  * Multiple spreadsheets must be created and merged depending on the necessary information
 
   * Compiling said spreadsheets increases the chances of errors:
       * Due to spelling mistakes
       * Accidentally deleting spreadsheet structure
-      * Over-writing spreadsheets while saving them.
+      * Over-writing spreadsheets while saving them
       
 * Excel does not become a website or a slide presentation easily
+  * Tables and graphs must be cut and pasted into the next format.
   
 ---
 # The Solution: Tidy Data
@@ -275,6 +277,7 @@ Consider the current AOIC report, presented in the following format:
     * Columns are single variable
     * Rows are single observation
     * Each observational unit forms a table
+    * A move away from analysis in Excel
 
 ---
 # AOIC Revisited
@@ -407,14 +410,15 @@ Consider the current AOIC report, presented in the following format:
 * It is difficult to read a 17-column&lt;sup&gt;1&lt;/sup&gt; wide table
   *   Scroll bars on web versions make it tolerable
   *   Print versions requires changing layout or font size
-  *   PDFs can allow for "zooming in" on particular rows and columns 
+  *   PDFs can allow for "zooming in" on particular rows and columns
+  *   These solutios also typically apply to Excel
 ]
 .pull-right[
 ### Pros
 * Allows for computed variables (average, total number of POs) by the software
 * Tidy format allows for faster selection and filtering of specific items
 * Tidy data allows for faster, and easier, combinations of data sets
-  * Combining OCJ and CTA Data
+  * For example, combining OCJ and CTA Data
 ]
 &lt;br /&gt;
 .footnote[1: The columns are: *PO_Name, Early Termination, Revoked-new offense/DOC-IDJJ, Revoked-Technical/DOC-IDJJ, Scheduled Termination, Social investigation, Supplemental social, Transferred out, Unsatisfactory termination, VOP Filed, YASI HIGH, YASI LOW, YASI MOD, YASI UNCLASSIFIED, Unit, SPO, DCPO*]
